@@ -2,7 +2,7 @@
   @apply relative inline-flex cursor-pointer items-start gap-2;
 }
 .weekly-checkbox {
-  @apply relative block m-0 box-border cursor-pointer select-none appearance-none items-center justify-center border-0 bg-transparent p-1 align-middle text-[(var(--weekly-text-color))] no-underline;
+  @apply relative flex m-0 box-border cursor-pointer select-none appearance-none items-center justify-center border-0 bg-transparent p-1 align-middle text-[(var(--weekly-text-color))] no-underline;
 }
 .weekly-checkbox-input {
   @apply border-[2px] border-solid border-[var(--weekly-dark-color-main)];
@@ -16,6 +16,10 @@
 }
 .weekly-checkbox-input::after {
   @apply absolute left-[15%] top-[-45%] text-base content-[url('@icons/ic_checkbox_checked.svg')];
+}
+
+.weekly-checkbox-checkbox {
+  @apply pt-[2.5px]
 }
 
 .weekly-checkbox-label-wrapper {

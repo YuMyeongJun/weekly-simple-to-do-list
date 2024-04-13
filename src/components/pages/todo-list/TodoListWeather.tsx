@@ -4,14 +4,15 @@ import { useWeatherListQuery } from "@hooks";
 import { weatherLabel, WeatherType, weatherTypes } from "@models";
 import { dateUtils } from "@modules";
 import classNames from "classnames";
-import { Children } from "react";
+import { Children, useEffect } from "react";
 import ReactLoading from "react-loading";
 
 export const TodoListWeather = () => {
   const {
-    query: { data, isFetching },
+    query: { data, isFetching, isFetched },
   } = useWeatherListQuery();
   const nowDate = new Date();
+
 
   return (
     <>
@@ -22,7 +23,7 @@ export const TodoListWeather = () => {
       ) : (
         <Slider
           index={nowDate.getDay() - 1}
-          className="overflow-hidden"
+          className="overflow-auto"
           limit={4}
           gap={10}
         >

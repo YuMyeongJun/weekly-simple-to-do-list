@@ -73,3 +73,22 @@ textarea {
   --weekly-placeholder-text-color: #dcdcdc;
   --weekly-placeholder-font-weight: 500;
 }
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 1px;
+  height: 0px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  
+  background: transparent;
+  border-radius: 1px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #c9c9c9;
+  border-radius: 10px;
+  border: none;
+}
