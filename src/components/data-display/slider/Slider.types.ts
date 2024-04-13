@@ -15,7 +15,7 @@ export interface ISliderProps extends HTMLAttributes<HTMLDivElement> {
    * 슬라이드가 시작하는 인덱스(index = 3 => 3번 인덱스 슬라이드부터 시작)
    * @default 0
    */
-  index: number;
+  index?: number;
 
   /**
    *  보여줄 슬라이드의 갯수

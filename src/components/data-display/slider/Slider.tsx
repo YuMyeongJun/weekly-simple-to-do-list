@@ -37,8 +37,8 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
   }, []);
 
   useEffect(() => {
-    if (carouselWrapperRef.current) {
-      carouselWrapperRef.current.scrollBy({
+    if (carouselWrapperRef.current && carouselWrapperRef.current?.scrollTo) {
+      carouselWrapperRef.current?.scrollTo({
         left: current * ((CAROUSEL_WIDTH ?? 0) / limit),
       });
     }
@@ -46,7 +46,6 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
 
   const handleOnDargStart = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     setIsDrag(true);
-    console.log("asd");
     if (carouselWrapperRef.current) {
       setStartX(e.pageX + carouselWrapperRef.current?.scrollLeft);
     }

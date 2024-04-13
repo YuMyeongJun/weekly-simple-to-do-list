@@ -46,7 +46,7 @@ export const TodoListWeather = () => {
                   <div>
                     {dateUtils.convertDateToBanksaladDateWeekFormat(item.date)}
                   </div>
-                  <div>{weatherLabel[item.weather]}</div>
+                  <div data-weather={item.weather}>{weatherLabel[item.weather]}</div>
                   <div>{item.temp}도</div>
                 </Flex>
               );

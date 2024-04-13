@@ -18,7 +18,6 @@ export const Checkbox = React.forwardRef(function Checkbox(
   const {
     checked: checkedProp,
     defaultChecked,
-
     disabled = false,
     id: idOverride,
     name: nameProp,
@@ -94,7 +93,7 @@ export const Checkbox = React.forwardRef(function Checkbox(
         />
       </span>
       <span
-        className={classNames(classes.labelWrpper, labelWrapperSlot.className)}
+        className={classNames(classes.labelWrapper, labelWrapperSlot.className)}
       >
         {label && (
           <span className={classNames(classes.label, labelSlot.className)}>

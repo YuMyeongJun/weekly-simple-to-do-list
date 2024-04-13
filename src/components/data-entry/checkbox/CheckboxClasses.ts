@@ -8,7 +8,7 @@ const classes = {
   /** 입력 요소에 적용되는 클래스 이름 */
   input: "input",
   /** 라벨 요소에 적용되는 클래스 이름 */
-  labelWrpper: "label-wrapper",
+  labelWrapper: "label-wrapper",
   /** 라벨 요소에 적용되는 클래스 이름 */
   label: "label",
   /** Sub 라벨 요소에 적용되는 클래스 이름 */
