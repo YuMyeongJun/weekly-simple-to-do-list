@@ -1,11 +1,8 @@
-$ns: .weekly;
 
-$(ns) {
-  &-textarea {
-    @apply w-full resize-none rounded-[var(--bc-rounded)] border-[length:var(--bc-border-width)] p-8pxr  bg-[var(--weekly-secondary-color-light)];
-
-    &.invalid {
-      @apply border-[var(--bc-error-color-main)] ring-2 ring-[var(--bc-error-color-light)];
-    }
+.weekly-textarea {
+    @apply w-full resize-none border-[length:var(--weekly-border-width)] px-2 bg-[var(--weekly-secondary-color-light)];
   }
-}
+  .weekly-textarea.invalid {
+    @apply border-[var(--weekly-error-color-main)] ring-2 ring-[var(--weekly-error-color-light)];
+  }
+  

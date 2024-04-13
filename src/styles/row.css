@@ -1,7 +1,6 @@
-$ns: .weekly;
 
-$(ns) {
-  &-row-box-border {
+.weekly-row-box-border {
     @apply box-border;
   }
-}
+  
+  

@@ -2,7 +2,7 @@ import { IcClose } from "@assets/icon";
 import { Checkbox } from "@components/data-entry";
 import { Col, Row } from "@components/layout";
 
-export const ListToDo = () => {
+export const ListTodo = () => {
   return (
     <div className="bg-[var(--weekly-secondary-color-light)] p-2">
       <Row gutter={[8, 0]} align="center">

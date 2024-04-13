@@ -1,132 +1,29 @@
-$prefix: weekly;
-$ns: .$(prefix)-checkbox;
+.weekly-checkbox-wrapper {
+  @apply relative inline-flex cursor-pointer items-start gap-2;
+}
+.weekly-checkbox {
+  @apply relative m-0 box-border inline-flex cursor-pointer select-none appearance-none items-center justify-center border-0 bg-transparent p-1 align-middle text-[(var(--weekly-text-color))] no-underline;
+}
+.weekly-checkbox-input {
+  @apply border-[2px] border-solid border-[var(--weekly-dark-color-main)];
+}
+.weekly-checkbox-input {
+  @apply relative m-0 h-16pxr w-16pxr cursor-[inherit] appearance-none rounded-[var(--weekly-rounded)] bg-white p-0;
+}
 
-$(ns) {
-  /* wrapper */
-  &-wrapper {
-    @apply relative inline-flex cursor-pointer items-start gap-2;
-  }
+.weekly-checkbox-input:checked {
+  @apply border-[var(--weekly-dark-color-main)] bg-[var(--weekly-dark-color-main)];
+}
+.weekly-checkbox-input::after {
+  @apply absolute left-[15%] top-[-45%] text-base content-[url('@icons/ic_checkbox_checked.svg')];
+}
 
-  /* checkbox */
-  &-checkbox {
-    @apply relative m-0 box-border inline-flex cursor-pointer select-none appearance-none items-center justify-center border-0 bg-transparent p-1 align-middle text-[(var(--weekly-text-color))] no-underline;
-
-    input {
-      @apply border-[2px] border-solid border-[var(--weekly-dark-color-main)];
-    }
-    /* input */
-    $(ns)-input[type="checkbox"] {
-      @apply relative m-0 h-16pxr w-16pxr cursor-[inherit] appearance-none rounded-[var(--weekly-rounded)] bg-white p-0;
-      /* focus-visible:input-focus; */
-      &:checked {
-        &:disabled {
-          @apply opacity-20;
-        }
-        &[data-color="primary"] {
-          @apply border-[var(--weekly-primary-color-main)] bg-[var(--weekly-primary-color-main)];
-        }
-
-        &[data-color="secondary"] {
-          @apply border-[var(--weekly-secondary-color-main)] bg-[var(--weekly-secondary-color-main)];
-        }
-
-        &[data-color="success"] {
-          @apply border-[var(--weekly-success-color-main)] bg-[var(--weekly-success-color-main)];
-        }
-
-        &[data-color="error"] {
-          @apply border-[var(--weekly-error-color-main)] bg-[var(--weekly-error-color-main)];
-        }
-
-        &[data-color="info"] {
-          @apply border-[var(--weekly-info-color-main)] bg-[var(--weekly-info-color-main)];
-        }
-
-        &[data-color="warning"] {
-          @apply border-[var(--weekly-warning-color-main)] bg-[var(--weekly-warning-color-main)];
-        }
-
-        &[data-color="dark"] {
-          @apply border-[var(--weekly-dark-color-main)] bg-[var(--weekly-dark-color-main)];
-        }
-        &::after {
-          @apply absolute left-[15%] top-[-45%] text-base content-[url('@icons/ic_checkbox_checked.svg')];
-        }
-      }
-    }
-
-    svg {
-      @apply flex h-max w-max select-none fill-current;
-    }
-  }
-
-  /* color */
-  &-wrapper:where($(ns)-checked, $(ns)-indeterminate):not($(ns)-disabled) {
-    /* default */
-    /* $(ns)-checkbox {
-     @apply text-[(var(--weekly-text-color))];
-    } */
-
-    /* primary */
-    &$(ns)-primary $(ns)-checkbox {
-      @apply text-[var(--weekly-primary-color-main)];
-    }
-
-    /* secondary */
-    &$(ns)-secondary $(ns)-checkbox {
-      @apply text-[var(--weekly-secondary-color-main)];
-    }
-
-    /* success */
-    &$(ns)-success $(ns)-checkbox {
-      @apply text-[var(--weekly-success-color-main)];
-    }
-
-    /* error */
-    &$(ns)-error $(ns)-checkbox {
-      @apply text-[var(--weekly-error-color-main)];
-    }
-
-    /* info */
-    &$(ns)-info $(ns)-checkbox {
-      @apply text-[var(--weekly-info-color-main)];
-    }
-
-    /* warning */
-    &$(ns)-warning $(ns)-checkbox {
-      @apply text-[var(--weekly-warning-color-main)];
-    }
-
-    /* dark */
-    &$(ns)-dark $(ns)-checkbox {
-      @apply text-neutral-800;
-    }
-  }
-
-  /* label */
-  &-label-wrapper {
-    @apply flex flex-col items-start;
-  }
-  /* label */
-  &-label {
-    @apply m-0 font-pretendard tracking-[0.00938em];
-  }
-
-  /* sub-label */
-  &-sub-label {
-    @apply text-neutral-500;
-  }
-
-  /* disabled */
-  &-disabled {
-    @apply cursor-not-allowed;
-
-    $(ns)-checkbox {
-      @apply cursor-not-allowed text-[var(--weekly-disable-border-color)];
-    }
-
-    $(ns)-label {
-      @apply text-[var(--weekly-disable-border-color)];
-    }
-  }
+.weekly-checkbox-label-wrapper {
+  @apply flex flex-col items-start;
+}
+.weekly-checkbox-label {
+  @apply m-0 font-pretendard tracking-[0.00938em];
+}
+.weekly-checkbox-sub-label {
+  @apply text-neutral-500;
 }

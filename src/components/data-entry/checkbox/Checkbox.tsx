@@ -16,17 +16,13 @@ export const Checkbox = React.forwardRef(function Checkbox(
   ref: React.ForwardedRef<HTMLInputElement>,
 ) {
   const {
-    checkedIcon = defaultCheckedIcon,
-    uncheckedIcon = defaultUncheckedIcon,
     checked: checkedProp,
     defaultChecked,
-    color = "primary",
+
     disabled = false,
     id: idOverride,
     name: nameProp,
     slotProps = {},
-    readOnly = false,
-    required = false,
     label,
     subLabel,
     onChange: onChangeProp,
@@ -55,16 +51,6 @@ export const Checkbox = React.forwardRef(function Checkbox(
     {
       // checked
       [classes.checked]: checked,
-      // disabled
-      [classes.disabled]: disabled,
-      // color
-      [classes.colorPrimary]: color === "primary",
-      [classes.colorSuccess]: color === "success",
-      [classes.colorSecondary]: color === "secondary",
-      [classes.colorError]: color === "error",
-      [classes.colorInfo]: color === "info",
-      [classes.colorWarning]: color === "warning",
-      [classes.colorDark]: color === "dark",
     },
     rootSlot.className,
   );
@@ -83,10 +69,10 @@ export const Checkbox = React.forwardRef(function Checkbox(
 
   const onChange = createChainedFunction(handleChange);
 
-  let icon = uncheckedIcon;
+  let icon = defaultUncheckedIcon;
 
   if (checked) {
-    icon = checkedIcon;
+    icon = defaultCheckedIcon;
   }
   return (
     <label {...rootSlot} className={rootClassName} htmlFor={id}>
@@ -104,14 +90,12 @@ export const Checkbox = React.forwardRef(function Checkbox(
           checked={checkedProp}
           defaultChecked={defaultChecked}
           className={classNames(classes.input, inputSlot.className)}
-          disabled={disabled}
-          readOnly={readOnly}
-          required={required}
           onChange={disabled ? undefined : onChange}
-          data-color={color}
         />
       </span>
-      <span className={classNames(classes.labelWrpper, labelWrapperSlot.className)}>
+      <span
+        className={classNames(classes.labelWrpper, labelWrapperSlot.className)}
+      >
         {label && (
           <span className={classNames(classes.label, labelSlot.className)}>
             {label}

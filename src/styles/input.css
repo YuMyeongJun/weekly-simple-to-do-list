@@ -1,39 +1,8 @@
-$ns: .weekly;
-
-$(ns) {
-  &-input {
+.weekly-input {
     @apply border-[length:var(--weekly-border-width)] border-[var(--weekly-border-color)] px-2 bg-[var(--weekly-secondary-color-light)] min-h-[var(--weekly-control-height)];
-    &:hover {
-      @apply border-[var(--weekly-gray-color-dark)];
-
-      input {
-        @apply caret-[var(--weekly-primary-color-main)];
-      }
-      svg {
-        @apply fill-[var(--weekly-gray-color-main)];
-      }
-    }
-
-    &:focus-within {
-      svg {
-        @apply fill-[var(--weekly-primary-color-main)];
-      }
-    }
-
-    &-sm {
-      @apply h-[var(--weekly-control-height)] text-[length:var(--weekly-font-size-sm)];
-    }
-
-    &-md {
-      @apply h-[var(--weekly-control-height)] text-[length:var(--weekly-font-size-md)];
-    }
-
-    &-lg {
-      @apply h-[var(--weekly-control-height-lg)] text-[length:var(--weekly-font-size-lg)];
-    }
-
-    &.invalid {
-      @apply border-[var(--weekly-error-color-main)] ring-2 ring-[var(--weekly-error-color-light)];
-    }
   }
-}
+  
+  .weekly-input.invalid {
+    @apply border-[var(--weekly-error-color-main)] ring-2 ring-[var(--weekly-error-color-light)];
+  }
+  

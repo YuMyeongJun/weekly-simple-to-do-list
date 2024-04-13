@@ -8,24 +8,6 @@ export interface CheckboxProps
    */
   checked?: boolean;
   /**
-   * 구성 요소가 체크되었을때 표시되는 아이콘
-   * @default <CheckBoxIcon />
-   */
-  checkedIcon?: React.ReactNode;
-  /**
-   * 구성 요소의 색상
-   * @default 'primary'
-   */
-  color?:
-    | "default"
-    | "primary"
-    | "secondary"
-    | "success"
-    | "error"
-    | "info"
-    | "warning"
-    | "dark";
-  /**
    * 기본 선택 상태 비제어 컴포넌트일때 사용
    */
   defaultChecked?: boolean;
@@ -34,11 +16,6 @@ export interface CheckboxProps
    * @default false
    */
   disabled?: boolean;
-  /**
-   * 구성 요소가 체크되지 않았을때 표시되는 아이콘
-   * @default <UncheckBoxIcon />
-   */
-  uncheckedIcon?: React.ReactNode;
   /**
    * `input` 구성 요소의 `id` 속성
    */
@@ -56,16 +33,6 @@ export interface CheckboxProps
    */
   name?: string;
   /**
-   * `true`인 경우 구성요소는 읽기 전용
-   * @default false
-   */
-  readOnly?: boolean;
-  /**
-   * `true`인 경우 `input` 요소가 필요
-   * @default false
-   */
-  required?: boolean;
-  /**
    * 슬롯 커스텀 속성
    */
   slotProps?: {
@@ -76,7 +43,6 @@ export interface CheckboxProps
     label?: React.ComponentPropsWithRef<"span">;
     subLabel?: React.ComponentPropsWithRef<"span">;
   };
-
   /**
    * 구성 요소의 값 DOM API는 이를 문자열로 변환
    * 브라우저는 "on"을 기본값으로 사용

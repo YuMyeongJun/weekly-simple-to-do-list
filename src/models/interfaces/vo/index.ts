@@ -1,2 +1,1 @@
-export * from './IMenuVO';
-export * from './IPartnersConditionVO';
+export * from './ICreateTodoVO';
