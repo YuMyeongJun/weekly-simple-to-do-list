@@ -1,4 +1,5 @@
 import { DefaultLayout } from '@components';
+import { ListComponent } from '@components/pages';
 
 import { RouteObject } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';
@@ -9,7 +10,8 @@ const routers: RouteObject[] = [
     children: [
       {
         path: '/',
-        element: <div></div>
+        index: true,
+        element: <ListComponent />
       },
     ],
   },
