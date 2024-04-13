@@ -1,0 +1,11 @@
+$ns: .weekly;
+
+$(ns) {
+  &-textarea {
+    @apply w-full resize-none rounded-[var(--bc-rounded)] border-[length:var(--bc-border-width)] p-8pxr  bg-[var(--weekly-secondary-color-light)];
+
+    &.invalid {
+      @apply border-[var(--bc-error-color-main)] ring-2 ring-[var(--bc-error-color-light)];
+    }
+  }
+}

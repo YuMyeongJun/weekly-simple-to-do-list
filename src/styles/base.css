@@ -1,76 +1,80 @@
 html {
-    font-family: Pretendard, sans-serif;
-  }
-  
-  input,
-  textarea {
-    @apply outline-none;
-  }
-  
-  :root {
-    /* 기본 텍스트 색 */
-    --weekly-text-color: #222222;
-    /* 기본 외곽선 색 */
-    --weekly-border-color: #cccccc;
-    --weekly-border-width: 1px;
-    --weekly-rounded-sm: 4px;
-    --weekly-rounded: 8px;
-    --weekly-rounded-lg: 12px;
-  
-    --weekly-control-height-sm: 24px;
-    --weekly-control-height: 32px;
-    --weekly-control-height-lg: 38px;
-    --weekly-control-gap: 4px;
-  
-    --weekly-font-size-xs: 13px;
-    --weekly-font-size-sm: 14px;
-    --weekly-font-size-md: 16px;
-    --weekly-font-size-lg: 18px;
-    --weekly-font-size-xl: 20px;
-  
-    --weekly-primary-color-main: #4478ff;
-    --weekly-primary-color-light: #a1bbff;
-    --weekly-primary-color-dark: #2659de;
-  
-    --weekly-secondary-color-main: #a855f7;
-    --weekly-secondary-color-light: #c084fc;
-    --weekly-secondary-color-dark: #7e22ce;
-  
-    --weekly-error-color-main: #ff4713;
-    --weekly-error-color-light: #ff471329;
-    --weekly-error-color-dark: #f81f55;
-  
-    --weekly-warning-color-main: #ff8a00;
-    --weekly-warning-color-light: #ffcc80;
-    --weekly-warning-color-dark: #f57c00;
-  
-    --weekly-info-color-main: #0288d1;
-    --weekly-info-color-light: #03a9f4;
-    --weekly-info-color-dark: #01579b;
-  
-    --weekly-success-color-main: #03bf4e;
-    --weekly-success-color-light: #1dfc76;
-    --weekly-success-color-dark: #198602;
-  
-    --weekly-gray-color-main: #636364;
-    --weekly-gray-color-light: #dcdcdc;
-    --weekly-gray-color-dark: #323232;
-  
-    --weekly-dark-color-main: #212529;
-    --weekly-dark-color-light: #424649;
-    --weekly-dark-color-dark: #222222;
-  
-    --weekly-disable-background: #f7f7fa;
-    --weekly-disable-text-color: #dcdcdc;
-    --weekly-disable-border-color: #dcdcdc;
-    --weekly-disable-cursor: not-allowed;
-    --weekly-disable-opacity: 0.25;
-  
-    --weekly-focus-outline-size: 2px;
-    --weekly-focus-outline-offset: 2px;
-    --weekly-focus-outline-color: #3b82f6;
-  
-    --weekly-placeholder-text-color: #dcdcdc;
-    --weekly-placeholder-font-weight: 500;
-  }
-  
+  font-family: Pretendard, sans-serif;
+}
+
+input,
+textarea {
+  @apply outline-none;
+}
+
+:root {
+  /* 기본 텍스트 색 */
+  --weekly-text-color: #222222;
+  /* 기본 외곽선 색 */
+  --weekly-border-color: #cccccc;
+  --weekly-border-width: 1px;
+  --weekly-rounded-sm: 4px;
+  --weekly-rounded: 8px;
+  --weekly-rounded-lg: 12px;
+
+  --weekly-control-height-sm: 24px;
+  --weekly-control-height: 32px;
+  --weekly-control-height-lg: 38px;
+  --weekly-control-gap: 4px;
+
+  --weekly-font-size-xs: 13px;
+  --weekly-font-size-sm: 14px;
+  --weekly-font-size-md: 16px;
+  --weekly-font-size-lg: 18px;
+  --weekly-font-size-xl: 20px;
+
+  --weekly-primary-color-main: #37a8fe;
+  --weekly-primary-color-light: #ebf6ff;
+  --weekly-primary-color-dark: #1d9afb;
+
+  --weekly-secondary-color-main: #636364;
+  --weekly-secondary-color-light: #dcdcdc;
+  --weekly-secondary-color-dark: #323232;
+
+  --weekly-error-color-main: #ff4713;
+  --weekly-error-color-light: #ff471329;
+  --weekly-error-color-dark: #f81f55;
+
+  --weekly-warning-color-main: #ff8a00;
+  --weekly-warning-color-light: #ffcc80;
+  --weekly-warning-color-dark: #f57c00;
+
+  --weekly-info-color-main: #0288d1;
+  --weekly-info-color-light: #03a9f4;
+  --weekly-info-color-dark: #01579b;
+
+  --weekly-success-color-main: #03bf4e;
+  --weekly-success-color-light: #1dfc76;
+  --weekly-success-color-dark: #198602;
+
+  --weekly-gray-color-main: #636364;
+  --weekly-gray-color-light: #dcdcdc;
+  --weekly-gray-color-dark: #323232;
+
+  --weekly-dark-color-main: #212529;
+  --weekly-dark-color-light: #424649;
+  --weekly-dark-color-dark: #222222;
+
+  --weekly-disable-background: #f7f7fa;
+  --weekly-disable-text-color: #dcdcdc;
+  --weekly-disable-border-color: #dcdcdc;
+  --weekly-disable-cursor: not-allowed;
+  --weekly-disable-opacity: 0.25;
+
+  --weekly-focus-outline-size: 2px;
+  --weekly-focus-outline-offset: 2px;
+  --weekly-focus-outline-color: #3b82f6;
+
+  --weekly-placeholder-text-color: #dcdcdc;
+  --weekly-placeholder-font-weight: 500;
+}
+
+
+*::placeholder {
+  @apply text-sm text-black;
+}

@@ -8,18 +8,3 @@
 @import './custom-utilities.css';
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-
-:root {
-  --weekly-primary-color-main: #1d9afb;
-  --weekly-primary-color-light: #37a8fe;
-  --weekly-primary-color-dark: #7e22ce;
-  --weekly-secondary-color-main: #636364;
-  --weekly-secondary-color-light: #dcdcdc;
-  --weekly-secondary-color-dark: ##323232;
-}
-
-
-*::placeholder {
-  @apply text-sm;
-}
-

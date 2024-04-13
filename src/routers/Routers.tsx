@@ -1,17 +1,23 @@
-import { DefaultLayout } from '@components';
-import { ListComponent } from '@components/pages';
+import { DefaultLayout } from "@components";
 
-import { RouteObject } from 'react-router';
-import { createBrowserRouter } from 'react-router-dom';
+import { CreatePage, ListPage } from "@pages";
+
+import { RouteObject } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
 
 const routers: RouteObject[] = [
   {
     element: <DefaultLayout />,
     children: [
       {
-        path: '/',
+        path: "/",
         index: true,
-        element: <ListComponent />
+        element: <ListPage />,
+      },
+      {
+        path: "/create",
+
+        element: <CreatePage />,
       },
     ],
   },

@@ -20,7 +20,7 @@ export const PageSection = ({
         {title && (
           <div
             className={classNames(
-              "mb-2.5 text-xl font-bold leading-normal",
+              "mb-1 text-xl font-bold leading-normal",
               titleClassName,
             )}
           >

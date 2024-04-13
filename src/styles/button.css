@@ -1,0 +1,8 @@
+$ns: .weekly;
+
+/* prettier-ignore */
+$(ns) {
+  &-btn{
+    @apply inline-flex min-h-[var(--weekly-control-height)] flex-wrap items-center justify-center border border-solid bg-transparent font-pretendard text-center select-none cursor-pointer no-underline text-[var(--weekly-gray-color-main)] focus:ring-2 ring-[var(--weekly-primary-color-light)] outline-none  bg-[var(--weekly-secondary-color-light)];
+  }
+}

@@ -1,2 +1,2 @@
 export * from './queryClient';
-export * from './util'
+export * from './utils'
