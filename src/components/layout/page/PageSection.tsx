@@ -28,9 +28,7 @@ export const PageSection = ({
           </div>
         )}
       </Flex>
-      <div className="relative rounded-mdbg-white py-2">
-        {children}
-      </div>
+      <div className="relative rounded-mdbg-white py-2">{children}</div>
     </div>
   );
 };

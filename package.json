@@ -17,6 +17,8 @@
     "echarts": "^5.4.3",
     "echarts-for-react": "^3.0.2",
     "faker": "5.5.3",
+    "postcss-nesting": "^12.1.1",
+    "postcss-simple-vars": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.50.1",

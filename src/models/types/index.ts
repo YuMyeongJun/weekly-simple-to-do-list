@@ -1,2 +1,2 @@
 export * from './ValueOf';
-export * from './PartnerSearchType';
+export * from './OverridableComponent';
