@@ -1,0 +1,70 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Pretendard';
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bc-rounded: 4px;
+  --bc-rounded-lg: 8px;
+
+  --bc-primary-color-main: #1d9afb;
+  --bc-primary-color-light: #37a8fe;
+  --bc-primary-color-dark: #7e22ce;
+  --bc-secondary-color-main: #636364;
+  --bc-secondary-color-light: #dcdcdc;
+  --bc-secondary-color-dark: ##323232;
+}
+
+.bc-card-head {
+  @apply border-b-0;
+}
+
+.bc-input-normal-md {
+  @apply text-sm;
+}
+
+.bc-btn-md {
+  @apply text-sm;
+}
+
+.page-title {
+  @apply text-[21px] font-[600];
+}
+
+.form-label {
+  @apply w-[150px] text-sm;
+}
+
+*::placeholder {
+  @apply text-sm;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+  margin-top: 36px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #c9c9c9;
+  border-radius: 14px;
+  border: none;
+}

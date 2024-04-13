@@ -1,0 +1,11 @@
+export { default as IcDashboard } from './dashboard.svg?react';
+export { default as IcCustomerManagement } from './customer_management.svg?react';
+export { default as IcServiceManagement } from './service_management.svg?react';
+export { default as IcStatistics } from './statistics.svg?react';
+export { default as IcOperator } from './operator.svg?react';
+export { default as IcHistory } from './history.svg?react';
+export { default as IcClaim } from './claim.svg?react';
+export { default as IcAvatar } from './avatar.svg?react';
+export { default as IcWarnning } from './warnning.svg?react';
+export { default as IcCaretDown } from './caret_down.svg?react';
+export { default as IcButtonMore } from './button_more.svg?react';
