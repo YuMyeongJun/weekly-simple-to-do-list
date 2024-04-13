@@ -9,7 +9,7 @@ export interface ISliderProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * 슬라이더에 들어갈 슬라이드 내용들
    */
-  children: React.ReactNode[];
+  children?: React.ReactNode[];
 
   /**
    * 슬라이드가 시작하는 인덱스(index = 3 => 3번 인덱스 슬라이드부터 시작)

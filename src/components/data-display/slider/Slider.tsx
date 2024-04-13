@@ -85,7 +85,7 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
             isDrag ? setTimeout(() => handleOnDragMode(e), 50) : undefined
           }
         >
-          {children.map((child, i) => {
+          {children?.map((child, i) => {
             return (
               <div
                 className="select-none"

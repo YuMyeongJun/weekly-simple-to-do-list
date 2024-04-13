@@ -6,14 +6,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import classNames from "classnames";
 import { ICreateTodoVO } from "@models";
+import { useTodoStore } from "@store";
+import { useNavigate } from "react-router";
 
-// export interface
-
-export const CreateComponent = () => {
+export const TodoCreateComponent = () => {
+  const navigate = useNavigate()
+  const { addTodo } = useTodoStore((state) => state);
   const schema = yup.object({
     title: yup.string().required("제목을 입력해주세요."),
     content: yup.string().required("내용을 입력해주세요."),
-    date: yup.date().default(undefined),
   });
   const {
     getValues,
@@ -26,6 +27,8 @@ export const CreateComponent = () => {
 
   const handleOnSubmit = (data: ICreateTodoVO) => {
     console.log(data);
+    addTodo(data);
+    navigate('/')
   };
   return (
     <PageLayout>
