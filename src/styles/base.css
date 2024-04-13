@@ -73,8 +73,3 @@ textarea {
   --weekly-placeholder-text-color: #dcdcdc;
   --weekly-placeholder-font-weight: 500;
 }
-
-
-*::placeholder {
-  @apply text-sm text-black;
-}

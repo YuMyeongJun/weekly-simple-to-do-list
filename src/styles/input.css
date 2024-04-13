@@ -1,8 +1,14 @@
 .weekly-input {
-    @apply border-[length:var(--weekly-border-width)] border-[var(--weekly-border-color)] px-2 bg-[var(--weekly-secondary-color-light)] min-h-[var(--weekly-control-height)];
-  }
-  
-  .weekly-input.invalid {
-    @apply border-[var(--weekly-error-color-main)] ring-2 ring-[var(--weekly-error-color-light)];
-  }
-  
+  @apply border-[length:var(--weekly-border-width)] border-[var(--weekly-border-color)] px-2 bg-[var(--weekly-secondary-color-light)] min-h-[var(--weekly-control-height)];
+}
+
+.weekly-input.invalid {
+  @apply border-[var(--weekly-error-color-main)] ring-2 ring-[var(--weekly-error-color-light)];
+}
+
+input[type="date"] {
+  @apply relative w-full before:content-[attr(data-placeholder)] before:w-full before:h-full before:leading-loose before:text-[#9da3ae] before:text-sm;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  @apply absolute w-full h-full text-transparent cursor-pointer left-0 top-0 bg-transparent bg-none;
+}

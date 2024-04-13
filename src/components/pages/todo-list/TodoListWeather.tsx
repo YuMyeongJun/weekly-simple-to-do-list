@@ -1,4 +1,5 @@
 import { Slider } from "@components/data-display";
+import { Flex } from "@components/layout";
 import { useWeatherListQuery } from "@hooks";
 import { weatherLabel, WeatherType, weatherTypes } from "@models";
 import { dateUtils } from "@modules";
@@ -21,13 +22,13 @@ export const TodoListWeather = () => {
           {Children.toArray(
             data?.map((item) => {
               return (
-                <div className="bg-[var(--weekly-secondary-color-light)]">
+                <Flex vertical align="center" justify="center" className="min-h-36 bg-[var(--weekly-secondary-color-light)]">
                   <div>
                     {dateUtils.convertDateToBanksaladDateWeekFormat(item.date)}
                   </div>
                   <div>{weatherLabel[item.weather]}</div>
                   <div>{item.temp}도</div>
-                </div>
+                </Flex>
               );
             }),
           )}

@@ -38,6 +38,6 @@ export const dateUtils = {
     if (!date) return false;
     const nowDate = new Date()
     const _date = new Date(date)
-    return nowDate > _date
+    return nowDate >= _date
   }
 };

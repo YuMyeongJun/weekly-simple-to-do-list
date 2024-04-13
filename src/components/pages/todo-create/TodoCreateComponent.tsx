@@ -58,6 +58,7 @@ export const TodoCreateComponent = () => {
               invalid: errors.content,
             })}
             placeholder="텍스트 입력"
+            rows={5}
             {...register("content")}
           ></textarea>
           {errors.content?.message && (
@@ -70,7 +71,7 @@ export const TodoCreateComponent = () => {
           <input
             type="date"
             className="weekly-input w-full"
-            placeholder="날짜 입력"
+            data-placeholder="날짜 입력"
             {...register("date")}
           />
         </PageSection>
