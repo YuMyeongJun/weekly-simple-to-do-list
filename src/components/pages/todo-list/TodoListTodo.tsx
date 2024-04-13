@@ -18,7 +18,7 @@ export const TodoListTodo = () => {
                 <Checkbox
                   color="dark"
                   label={todo.title}
-                  subLabel={dateUtils.convertDateToYYYYMMDDFormat(todo.date)}
+                  subLabel={dateUtils.convertDateToYYYYMMDDDueDateFormat(todo.date)}
                   slotProps={{
                     label: {
                       className: classNames(

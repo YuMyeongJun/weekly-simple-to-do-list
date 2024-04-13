@@ -24,13 +24,7 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
 
   const [current, setCurrent] = useState(0);
   const [isDrag, setIsDrag] = useState(false);
-  const [mouseUpClientX, setMouseUpClientX] = useState(0);
   const [startX, setStartX] = useState(0);
-
-  const [style, setStyle] = useState({
-    marginLeft: `${remUtil.rem(current * -((CAROUSEL_WIDTH ?? 0) / limit))}`,
-    transition: "none",
-  });
 
   const rootClassName = classNames(sliderClasses.root, className);
 
@@ -40,17 +34,19 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
     } else {
       setCurrent(index);
     }
-  }, [index]);
+  }, []);
 
   useEffect(() => {
-    setStyle({
-      marginLeft: `${remUtil.rem(current * -((CAROUSEL_WIDTH ?? 0) / limit))}`,
-      transition: "all 0.3s ease-out",
-    });
+    if (carouselWrapperRef.current) {
+      carouselWrapperRef.current.scrollBy({
+        left: current * ((CAROUSEL_WIDTH ?? 0) / limit),
+      });
+    }
   }, [current]);
 
   const handleOnDargStart = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     setIsDrag(true);
+    console.log("asd");
     if (carouselWrapperRef.current) {
       setStartX(e.pageX + carouselWrapperRef.current?.scrollLeft);
     }
@@ -77,7 +73,7 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
         className={sliderClasses.component}
       >
         <div
-          style={{ display: "flex", gap: gap, ...style }}
+          style={{ display: "flex", gap: gap }}
           className={classNames(sliderClasses.contentWrapper)}
           onMouseDown={handleOnDargStart}
           onMouseUp={handleOnDragEnd}

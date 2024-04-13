@@ -32,12 +32,20 @@ export const dateUtils = {
     const year = _date.getFullYear();
     const month = ("0" + (_date.getMonth() + 1)).slice(-2);
     const day = ("0" + _date.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
+  },
+  convertDateToYYYYMMDDDueDateFormat: (date?: Date) => {
+    if (!date) return "";
+    const _date = new Date(date);
+    const year = _date.getFullYear();
+    const month = ("0" + (_date.getMonth() + 1)).slice(-2);
+    const day = ("0" + _date.getDate()).slice(-2);
     return `due date: ${year}.${month}.${day}`;
   },
   todayOverDate: (date?: Date) => {
     if (!date) return false;
-    const nowDate = new Date()
-    const _date = new Date(date)
-    return nowDate >= _date
-  }
+    const nowDate = dateUtils.convertDateToYYYYMMDDFormat(new Date());
+    const _date = new Date(date);
+    return new Date(nowDate) >= _date;
+  },
 };
