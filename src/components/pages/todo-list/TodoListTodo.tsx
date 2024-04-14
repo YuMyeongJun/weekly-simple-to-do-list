@@ -34,7 +34,8 @@ export const TodoListTodo = () => {
                     },
                     subLabel: {
                       className: classNames({
-                        "text-red-500": dateUtils.todayOverDate(todo.date),
+                        "text-red-500":
+                          dateUtils.todayOverDate(todo.date) && !todo?.complete,
                       }),
                     },
                   }}
