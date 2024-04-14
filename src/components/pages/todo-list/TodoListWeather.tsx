@@ -12,7 +12,6 @@ export const TodoListWeather = () => {
     query: { data, isFetching },
   } = useWeatherListQuery();
   const nowDate = new Date();
-
   return (
     <>
       {isFetching ? (
@@ -21,7 +20,7 @@ export const TodoListWeather = () => {
         </div>
       ) : (
         <Slider
-          index={nowDate.getDay() - 1}
+          index={nowDate.getDay() === 0 ? 6 : nowDate.getDay()}
           className="overflow-auto"
           limit={4}
           gap={10}
@@ -34,7 +33,7 @@ export const TodoListWeather = () => {
                   align="center"
                   justify="center"
                   className={classNames(
-                    "min-h-36 bg-[var(--weekly-secondary-color-light)]",
+                    "min-h-36 text-sm bg-[var(--weekly-secondary-color-light)]",
                     {
                       "font-bold":
                         dateUtils.convertDateToYYYYMMDDFormat(nowDate) ===
@@ -45,8 +44,12 @@ export const TodoListWeather = () => {
                   <div>
                     {dateUtils.convertDateToBanksaladDateWeekFormat(item.date)}
                   </div>
-                  <div data-weather={item.weather}>
-                    {weatherLabel[item.weather]}
+                  <div
+                    title={weatherLabel[item.weather]}
+                    data-weather={item.weather}
+                    className="truncate max-w-[70px] hover:text-clip hover:max-w-fit hover:whitespace-normal"
+                  >
+                    ({weatherLabel[item.weather]})
                   </div>
                   <div>{item.temp}도</div>
                 </Flex>

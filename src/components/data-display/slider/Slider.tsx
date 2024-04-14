@@ -5,8 +5,9 @@ import classNames from "classnames";
 import { remUtil } from "@modules/utils/rem";
 import { sliderClasses } from "./SliderClasses";
 
-export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args) => {
-  const { className, width, children, index = 0, limit = 1, gap } = args;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, _ref) => {
+  const { className, width = 300, children, index = 0, limit = 1, gap } = args;
 
   const sliderWrapperRef = useRef<HTMLDivElement>(null);
   const sliderWrapperWidth = sliderWrapperRef.current?.offsetWidth;
@@ -24,15 +25,16 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args) => {
     } else {
       setCurrent(index);
     }
-  }, [index]);
+  }, []);
 
   useEffect(() => {
     if (sliderWrapperRef.current && sliderWrapperRef.current?.scrollTo) {
+      console.log(current * ((SLIDER_WIDTH ?? 0) / limit));
       sliderWrapperRef.current?.scrollTo({
         left: current * ((SLIDER_WIDTH ?? 0) / limit),
       });
     }
-  }, [current, SLIDER_WIDTH, limit]);
+  }, [current]);
 
   const handleOnDargStart = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     setIsDrag(true);
