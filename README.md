@@ -1,7 +1,8 @@
 # weekly-simple-todo-list
 
 ## Node Version
-``` bash
+
+```bash
 node >= v18
 nvm install 20.11.0
 nvm use 20.11.0
@@ -77,17 +78,11 @@ src
 
 ```json
 {
-   "dependencies": {
+  "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@tanstack/react-query": "^5.22.2",
     "axios": "^1.6.8",
     "classnames": "^2.5.1",
-    "dayjs": "^1.11.10",
-    "echarts": "^5.4.3",
-    "echarts-for-react": "^3.0.2",
-    "faker": "5.5.3",
-    "postcss-nesting": "^12.1.1",
-    "postcss-simple-vars": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.50.1",
@@ -115,9 +110,12 @@ src
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-simple-import-sort": "^12.1.0",
+    "faker": "5.5.3",
     "jsdom": "^24.0.0",
     "postcss": "^8.4.35",
     "postcss-import": "^16.0.0",
+    "postcss-nesting": "^12.1.1",
+    "postcss-simple-vars": "^7.0.1",
     "prettier": "^3.2.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
