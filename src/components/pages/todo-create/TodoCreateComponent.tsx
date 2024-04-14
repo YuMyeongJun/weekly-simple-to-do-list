@@ -17,6 +17,7 @@ export const TodoCreateComponent = () => {
     content: yup.string().required("내용을 입력해주세요."),
   });
   const {
+    watch,
     register,
     handleSubmit,
     formState: { errors },
@@ -73,7 +74,10 @@ export const TodoCreateComponent = () => {
           <input
             role="todo-create-date"
             type="date"
-            className="weekly-input w-full"
+            className={classNames("weekly-input", {
+              "before:content-[attr(data-placeholder)] before:w-full before:h-full before:leading-loose before:text-[#9da3ae] before:text-sm":
+                !watch("date"),
+            })}
             data-placeholder="날짜 입력"
             {...register("date")}
           />

@@ -8,7 +8,7 @@
   @apply border-[2px] border-solid border-[var(--weekly-dark-color-main)];
 }
 .weekly-checkbox-input {
-  @apply relative m-0 h-16pxr w-16pxr cursor-[inherit] appearance-none rounded-[var(--weekly-rounded)] bg-white p-0;
+  @apply relative m-0 h-[1rem] w-[1rem] cursor-[inherit] appearance-none rounded-[var(--weekly-rounded)] bg-white p-0;
 }
 
 .weekly-checkbox-input:checked {
