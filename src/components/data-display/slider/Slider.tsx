@@ -18,9 +18,9 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
     ...SliderProps
   } = args;
 
-  const carouselWrapperRef = useRef<HTMLDivElement>(null);
-  const carouselWrapperWidth = carouselWrapperRef.current?.offsetWidth;
-  const CAROUSEL_WIDTH = width ?? carouselWrapperWidth;
+  const sliderWrapperRef = useRef<HTMLDivElement>(null);
+  const sliderWrapperWidth = sliderWrapperRef.current?.offsetWidth;
+  const SLIDER_WIDTH = width ?? sliderWrapperWidth;
 
   const [current, setCurrent] = useState(0);
   const [isDrag, setIsDrag] = useState(false);
@@ -37,17 +37,17 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
   }, []);
 
   useEffect(() => {
-    if (carouselWrapperRef.current && carouselWrapperRef.current?.scrollTo) {
-      carouselWrapperRef.current?.scrollTo({
-        left: current * ((CAROUSEL_WIDTH ?? 0) / limit),
+    if (sliderWrapperRef.current && sliderWrapperRef.current?.scrollTo) {
+      sliderWrapperRef.current?.scrollTo({
+        left: current * ((SLIDER_WIDTH ?? 0) / limit),
       });
     }
   }, [current]);
 
   const handleOnDargStart = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     setIsDrag(true);
-    if (carouselWrapperRef.current) {
-      setStartX(e.pageX + carouselWrapperRef.current?.scrollLeft);
+    if (sliderWrapperRef.current) {
+      setStartX(e.pageX + sliderWrapperRef.current?.scrollLeft);
     }
   };
   const handleOnDragEnd = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -57,17 +57,17 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
   const handleOnDragMode = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ) => {
-    if (isDrag && carouselWrapperRef.current) {
-      carouselWrapperRef.current.scrollLeft = startX - e.pageX;
+    if (isDrag && sliderWrapperRef.current) {
+      sliderWrapperRef.current.scrollLeft = startX - e.pageX;
     }
   };
 
   return (
-    <div className={classNames(rootClassName)} ref={carouselWrapperRef}>
+    <div className={classNames(rootClassName)} ref={sliderWrapperRef}>
       <div
         role="presentation"
         style={{
-          width: `${remUtil.rem((CAROUSEL_WIDTH ?? 0) / limit)}`,
+          width: `${remUtil.rem((SLIDER_WIDTH ?? 0) / limit)}`,
         }}
         className={sliderClasses.component}
       >
@@ -85,7 +85,7 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
               <div
                 className="select-none"
                 style={{
-                  width: `${remUtil.rem((CAROUSEL_WIDTH ?? 0) / limit)}`,
+                  width: `${remUtil.rem((SLIDER_WIDTH ?? 0) / limit)}`,
                   flex: "none",
                 }}
                 key={`card-wrap-${i}`}

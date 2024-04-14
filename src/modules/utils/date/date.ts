@@ -8,7 +8,7 @@ export const dateUtils = {
 
     const thisWeek = [];
 
-    for (let i = 1; i < 8; i++) {
+    for (let i = 0; i < 7; i++) {
       const resultDay = new Date(
         theYear,
         theMonth,

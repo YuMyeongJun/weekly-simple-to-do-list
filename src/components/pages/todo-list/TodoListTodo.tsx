@@ -44,7 +44,7 @@ export const TodoListTodo = () => {
                 <IcClose
                   width={10}
                   height={10}
-                  className="cursor-pointer"
+                  className="weekly-delete-icon cursor-pointer"
                   onClick={() => deleteTodo(index)}
                 />
               </Col>

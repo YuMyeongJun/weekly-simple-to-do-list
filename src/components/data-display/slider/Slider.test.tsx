@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect, } from "vitest";
+import { describe, it, expect } from "vitest";
 import { Slider } from "./Slider";
 
 import { sliderClasses as classes } from "./SliderClasses";
@@ -33,6 +33,9 @@ describe("<Slider />", () => {
       </Slider>,
     );
 
-    expect((container.firstChild as HTMLElement).scrollTo && (container.firstChild as HTMLElement).scrollTo({ left: 50 }));
+    expect(
+      (container.firstChild as HTMLElement).scrollTo &&
+        (container.firstChild as HTMLElement).scrollTo({ left: 50 }),
+    );
   });
 });

@@ -12,7 +12,7 @@ export const TodoListComponent = () => {
       <PageSection title="이번주 날씨">
         <TodoListWeather />
       </PageSection>
-      <PageSection title="이번주 ToDo">
+      <PageSection title="이번주 To-Do">
         <Flex gap={10} vertical>
           <button className="weekly-btn" onClick={() => navigation('/create')}>
             추가버튼
