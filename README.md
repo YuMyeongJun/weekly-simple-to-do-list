@@ -77,20 +77,7 @@ src
 
 ```json
 {
-  "name": "weekly-simple-todo-list",
-  "private": true,
-  "version": "0.0.1",
-  "type": "module",
-  "packageManager": "yarn@4.1.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint ./src --fix",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@faker-js/faker": "^8.4.1",
+   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@tanstack/react-query": "^5.22.2",
     "axios": "^1.6.8",
@@ -107,11 +94,16 @@ src
     "react-loading": "^2.0.3",
     "react-router": "^6.22.0",
     "react-router-dom": "^6.22.0",
+    "vitest": "^1.5.0",
     "yup": "^1.4.0",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.2",
     "@types/faker": "5.5.9",
+    "@types/jest": "^29.5.12",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
@@ -119,8 +111,11 @@ src
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.56.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "jsdom": "^24.0.0",
     "postcss": "^8.4.35",
     "postcss-import": "^16.0.0",
     "prettier": "^3.2.5",
