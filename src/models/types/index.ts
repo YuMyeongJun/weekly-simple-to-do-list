@@ -1,3 +1,2 @@
-export * from './ValueOf';
-export * from './OverridableComponent';
-export * from './WeatherType'
+export * from "./ValueOf";
+export * from "./WeatherType";

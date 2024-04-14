@@ -25,8 +25,8 @@ vi.mock("@store", () => ({
 
 describe("<TodoListTodo />", () => {
   it("렌더링합니다.", () => {
-    const { debug, container } = render(<TodoListTodo />);
-    // debug(container)
+    const { container } = render(<TodoListTodo />);
+
     expect(container).toBeTruthy();
   });
 

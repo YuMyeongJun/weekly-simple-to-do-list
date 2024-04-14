@@ -1,11 +1,9 @@
-import { memo } from "react";
-
 export interface IPageMetaProps {
   title?: string;
   subTitle?: string;
 }
 
-const PageMeta = ({title, subTitle}: IPageMetaProps) => {
+export const PageMeta = ({ title, subTitle }: IPageMetaProps) => {
   return (
     <div className="w-96">
       <h1 className="title text-2xl font-semibold text-[#222222]">{title}</h1>
@@ -13,5 +11,3 @@ const PageMeta = ({title, subTitle}: IPageMetaProps) => {
     </div>
   );
 };
-
-export default memo(PageMeta)

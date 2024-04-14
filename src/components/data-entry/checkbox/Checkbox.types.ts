@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export interface CheckboxProps
+export interface ICheckboxProps
   extends Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> {
   /**
    * `true`인 경우 구성 요소가 체크

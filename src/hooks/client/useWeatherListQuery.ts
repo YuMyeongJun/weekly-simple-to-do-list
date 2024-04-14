@@ -1,4 +1,4 @@
-import useHttp from "@hooks/useHttp";
+// import useHttp from "@hooks/useHttp";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { faker } from "@faker-js/faker";
 import { IWeatherListDto, WeatherType } from "@models";
@@ -13,7 +13,7 @@ const createWeatherList = (date: Date): IWeatherListDto => {
   };
 };
 export const useWeatherListQuery = () => {
-  const http = useHttp();
+  // const http = useHttp();
   const queryClient = useQueryClient();
   const query = useQuery<IWeatherListDto[]>({
     queryKey: [queryKey],

@@ -1,3 +1,3 @@
 export * from "./PageLayout";
-export * from "./PageMeta";
 export * from "./PageSection";
+export * from "./PageMeta";

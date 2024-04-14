@@ -1,39 +1,28 @@
 import * as React from "react";
 import { useControlled } from "@hooks/useControlled";
-import { composeRef } from "@modules/utils/composeRef";
-import { createChainedFunction } from "@modules/utils/createChainedFunction";
 import classNames from "classnames";
 
-import { CheckboxProps } from "./Checkbox.types";
+import { ICheckboxProps } from "./Checkbox.types";
 import { checkboxClasses as classes } from "./CheckboxClasses";
-import { ICCheckboxOutlineBlankRounded, ICCheckboxRounded } from "@assets/icon";
+import { forwardRef } from "react";
 
-const defaultCheckedIcon = <ICCheckboxRounded />;
-const defaultUncheckedIcon = <ICCheckboxOutlineBlankRounded />;
-
-export const Checkbox = React.forwardRef(function Checkbox(
-  props: CheckboxProps,
-  ref: React.ForwardedRef<HTMLInputElement>,
-) {
+export const Checkbox = forwardRef<HTMLElement, ICheckboxProps>((args) => {
   const {
     checked: checkedProp,
     defaultChecked,
     disabled = false,
     id: idOverride,
-    name: nameProp,
+    name,
     slotProps = {},
     label,
     subLabel,
     onChange: onChangeProp,
     ...inputProps
-  } = props;
+  } = args;
 
   const defaultId = React.useId();
   const id = idOverride ?? defaultId;
-
-  let name = nameProp;
-
-  const [checked, setCheckedState] = useControlled({
+  const [checked, setChecked] = useControlled({
     controlled: checkedProp,
     defaultValue: defaultChecked,
   });
@@ -54,25 +43,17 @@ export const Checkbox = React.forwardRef(function Checkbox(
     rootSlot.className,
   );
 
-  const inputRef = composeRef(inputSlot.ref, ref);
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // Workaround for https://github.com/facebook/react/issues/9023
     if (event.nativeEvent.defaultPrevented) {
       return;
     }
 
-    setCheckedState(event.target.checked);
+    setChecked(event.target.checked);
     onChangeProp?.(event, event.target.checked);
   };
 
-  const onChange = createChainedFunction(handleChange);
-
-  let icon = defaultUncheckedIcon;
-
-  if (checked) {
-    icon = defaultCheckedIcon;
-  }
+  const onChange = handleChange;
   return (
     <label {...rootSlot} className={rootClassName} htmlFor={id}>
       <span
@@ -83,7 +64,7 @@ export const Checkbox = React.forwardRef(function Checkbox(
           {...inputProps}
           {...inputSlot}
           type="checkbox"
-          ref={inputRef}
+          ref={inputSlot.ref}
           id={id}
           name={name}
           checked={checkedProp}

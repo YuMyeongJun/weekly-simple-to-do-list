@@ -35,11 +35,10 @@ describe("<TodoListWeather />", () => {
   });
 
   it("날씨 리스트가 좌우로 스크롤이 됩니다.", () => {
-    const { debug, getByRole } = render(<TodoListWeather />);
+    const { getByRole } = render(<TodoListWeather />);
     const container = getByRole("presentation");
-    // debug(container);
+
     expect(fireEvent.scroll(container, { y: 100 })).toBeTruthy();
-    // debug(container);
     expect(fireEvent.scroll(container, { y: -100 })).toBeTruthy();
   });
 });

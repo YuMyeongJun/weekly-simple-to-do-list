@@ -6,17 +6,8 @@ import classNames from "classnames";
 import { ISliderProps } from "./Slider.types";
 import { sliderClasses } from "./SliderClasses";
 
-export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
-  const {
-    className,
-    width,
-    children,
-    index = 0,
-    limit = 1,
-    readOnly,
-    gap,
-    ...SliderProps
-  } = args;
+export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args) => {
+  const { className, width, children, index = 0, limit = 1, gap } = args;
 
   const sliderWrapperRef = useRef<HTMLDivElement>(null);
   const sliderWrapperWidth = sliderWrapperRef.current?.offsetWidth;
@@ -34,7 +25,7 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
     } else {
       setCurrent(index);
     }
-  }, []);
+  }, [index]);
 
   useEffect(() => {
     if (sliderWrapperRef.current && sliderWrapperRef.current?.scrollTo) {
@@ -42,7 +33,7 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
         left: current * ((SLIDER_WIDTH ?? 0) / limit),
       });
     }
-  }, [current]);
+  }, [current, SLIDER_WIDTH, limit]);
 
   const handleOnDargStart = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     setIsDrag(true);
@@ -50,7 +41,7 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
       setStartX(e.pageX + sliderWrapperRef.current?.scrollLeft);
     }
   };
-  const handleOnDragEnd = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+  const handleOnDragEnd = () => {
     setIsDrag(false);
   };
 

@@ -19,7 +19,7 @@ describe("<TodoListComponent />", () => {
         </HttpProvider>
       </QueryClientProvider>,
     );
-    expect(screen.getByText('THIS WEEK')).toBeTruthy()
+    expect(screen.getByText("THIS WEEK")).toBeTruthy();
   });
 
   it("추가버튼을 클릭하면 '/create' 경로로 이동합니다.", () => {

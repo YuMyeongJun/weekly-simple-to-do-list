@@ -1,5 +1,4 @@
-import { PageLayout, PageSection } from "@components/layout";
-import PageMeta from "@components/layout/page/PageMeta";
+import { PageLayout, PageSection, PageMeta } from "@components/layout";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
