@@ -15,7 +15,7 @@ describe("<Button />", () => {
     expect(button.textContent).toEqual("Button");
   });
 
-  it("type을 변경할 수 있습니다.", () => {
+  it("type 변경", () => {
     const { container, rerender } = render(
       <Button type="button">Hello World</Button>,
     );
@@ -30,7 +30,7 @@ describe("<Button />", () => {
 });
 
 describe("Props: disabled", () => {
-  it("disabled 설정됩니다.", () => {
+  it("disabled 설정", () => {
     const { getByRole } = render(<Button disabled={true} />);
     const button = getByRole("button");
 
@@ -38,7 +38,7 @@ describe("Props: disabled", () => {
     expect(button).toHaveProperty("disabled", true);
   });
 
-  it("disabled 설정되면 포커스되지 않습니다.", () => {
+  it("disabled 설정되면 포커스 불가", () => {
     const { getByRole } = render(<Button disabled={true} />);
 
     const button = getByRole("button");
@@ -50,7 +50,7 @@ describe("Props: disabled", () => {
     expect(document.activeElement).not.toEqual(button);
   });
 
-  it("disabled 설정되면 사용자 동작에 응답하지 않습니다.", () => {
+  it("disabled 설정되면 사용자 동작에 응답하지 불가", () => {
     const onClick = vi.fn();
     const { getByRole } = render(<Button disabled={true} onClick={onClick} />);
 
@@ -67,7 +67,7 @@ describe("Props: disabled", () => {
 });
 
 describe("이벤트 콜백", () => {
-  it("이벤트 콜백이 실행되어야 합니다.", () => {
+  it("이벤트 콜백이 실행여부", () => {
     const onClick = vi.fn();
     const onBlur = vi.fn();
     const onFocus = vi.fn();
