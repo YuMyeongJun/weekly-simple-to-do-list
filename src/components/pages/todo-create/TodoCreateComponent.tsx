@@ -7,6 +7,7 @@ import classNames from "classnames";
 import { ICreateTodoVO } from "@models";
 import { useTodoStore } from "@store";
 import { useNavigate } from "react-router";
+import { Button, Input, Textarea } from "@components/data-entry";
 
 export const TodoCreateComponent = () => {
   const navigate = useNavigate();
@@ -25,7 +26,6 @@ export const TodoCreateComponent = () => {
   });
 
   const handleOnSubmit = (data: ICreateTodoVO) => {
-    console.log(data);
     addTodo(data);
     navigate("/");
   };
@@ -38,7 +38,7 @@ export const TodoCreateComponent = () => {
         onSubmit={handleSubmit(handleOnSubmit)}
       >
         <PageSection title="제목">
-          <input
+          <Input
             role="todo-create-title"
             type="text"
             className={classNames("weekly-input w-full", {
@@ -54,15 +54,15 @@ export const TodoCreateComponent = () => {
           )}
         </PageSection>
         <PageSection title="내용">
-          <textarea
+          <Textarea
             role="todo-create-content"
             className={classNames("weekly-textarea w-full", {
               invalid: errors.content,
             })}
             placeholder="텍스트 입력"
-            rows={5}
+            minRows={5}
             {...register("content")}
-          ></textarea>
+          />
           {errors.content?.message && (
             <span className="text-[var(--weekly-error-color-main)]">
               {errors.content?.message}
@@ -70,7 +70,7 @@ export const TodoCreateComponent = () => {
           )}
         </PageSection>
         <PageSection title="Due Date (Option)">
-          <input
+          <Input
             role="todo-create-date"
             type="date"
             className={classNames("weekly-input", {
@@ -81,9 +81,9 @@ export const TodoCreateComponent = () => {
             {...register("date")}
           />
         </PageSection>
-        <button role="todo-create-submit" type="submit" className="weekly-btn">
+        <Button role="todo-create-submit" type="submit" className="weekly-btn">
           저장 버튼
-        </button>
+        </Button>
       </form>
     </PageLayout>
   );

@@ -9,7 +9,11 @@ import { Children } from "react";
 export const TodoListTodo = () => {
   const { todos, deleteTodo, completeTodo } = useTodoStore((state) => state);
   return (
-    <div className="bg-[var(--weekly-secondary-color-light)] p-2">
+    <div
+      className={classNames("hidden p-2", {
+        "!block bg-[var(--weekly-secondary-color-light)]": todos.length > 0,
+      })}
+    >
       {Children.toArray(
         todos?.map((todo, index) => (
           <Row gutter={[8, 0]} align="start">
@@ -42,7 +46,7 @@ export const TodoListTodo = () => {
               />
             </Col>
             <Col span={2}>
-              <div className="pt-13">
+              <div className="pt-1.5">
                 <IcClose
                   width={10}
                   height={10}

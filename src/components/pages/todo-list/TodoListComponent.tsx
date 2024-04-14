@@ -2,6 +2,7 @@ import { Flex, PageLayout, PageSection, PageMeta } from "@components/layout";
 import { TodoListWeather } from "./TodoListWeather";
 import { TodoListTodo } from "./TodoListTodo";
 import { useNavigate } from "react-router";
+import { Button } from "@components/data-entry";
 
 export const TodoListComponent = () => {
   const navigation = useNavigate();
@@ -13,9 +14,9 @@ export const TodoListComponent = () => {
       </PageSection>
       <PageSection title="이번주 To-Do">
         <Flex gap={10} vertical>
-          <button className="weekly-btn" onClick={() => navigation("/create")}>
+          <Button className="weekly-btn" onClick={() => navigation("/create")}>
             추가버튼
-          </button>
+          </Button>
           <TodoListTodo />
         </Flex>
       </PageSection>
