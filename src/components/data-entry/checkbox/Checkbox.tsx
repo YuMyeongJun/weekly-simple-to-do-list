@@ -1,10 +1,10 @@
 import * as React from "react";
-import { useControlled } from "@hooks/useControlled";
-import classNames from "classnames";
 
 import { ICheckboxProps } from "./Checkbox.types";
+import classNames from "classnames";
 import { checkboxClasses as classes } from "./CheckboxClasses";
 import { forwardRef } from "react";
+import { useControlled } from "@hooks/useControlled";
 
 export const Checkbox = forwardRef<HTMLElement, ICheckboxProps>((args) => {
   const {

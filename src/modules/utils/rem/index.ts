@@ -6,8 +6,8 @@ export const remUtil = {
   },
 
   findNumber: (size: string | number) => {
-    if (typeof size === 'string') return Number(size.replace(/[^0-9]/g, ''));
-    else if (typeof size === 'number') return size;
+    if (typeof size === "string") return Number(size.replace(/[^0-9]/g, ""));
+    else if (typeof size === "number") return size;
     else return 0;
   },
 };

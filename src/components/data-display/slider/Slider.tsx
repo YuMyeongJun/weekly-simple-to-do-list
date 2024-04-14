@@ -1,9 +1,8 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 
-import { remUtil } from "@modules/utils/rem";
-import classNames from "classnames";
-
 import { ISliderProps } from "./Slider.types";
+import classNames from "classnames";
+import { remUtil } from "@modules/utils/rem";
 import { sliderClasses } from "./SliderClasses";
 
 export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args) => {

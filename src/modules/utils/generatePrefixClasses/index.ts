@@ -1,1 +1,1 @@
-export * from './generatePrefixClasses'
+export * from "./generatePrefixClasses";

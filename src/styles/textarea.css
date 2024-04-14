@@ -1,8 +1,6 @@
-
 .weekly-textarea {
-    @apply w-full resize-none border-[length:var(--weekly-border-width)] px-2 bg-[var(--weekly-secondary-color-light)];
-  }
-  .weekly-textarea.invalid {
-    @apply border-[var(--weekly-error-color-main)] ring-2 ring-[var(--weekly-error-color-light)];
-  }
-  
+  @apply w-full resize-none border-[length:var(--weekly-border-width)] px-2 bg-[var(--weekly-secondary-color-light)];
+}
+.weekly-textarea.invalid {
+  @apply border-[var(--weekly-error-color-main)] ring-2 ring-[var(--weekly-error-color-light)];
+}

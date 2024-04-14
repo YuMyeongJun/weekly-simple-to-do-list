@@ -1,3 +1,3 @@
-export * from './Slider'
-export * from './Slider.types'
-export * from './SliderClasses'
+export * from "./Slider";
+export * from "./Slider.types";
+export * from "./SliderClasses";

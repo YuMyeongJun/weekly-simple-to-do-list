@@ -1,1 +1,1 @@
-export * from './useWeatherListQuery'
+export * from "./useWeatherListQuery";

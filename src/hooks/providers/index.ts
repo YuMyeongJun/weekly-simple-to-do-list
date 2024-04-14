@@ -1,1 +1,1 @@
-export * from './HttpProvider'
+export * from "./HttpProvider";

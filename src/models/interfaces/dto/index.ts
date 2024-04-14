@@ -1,1 +1,1 @@
-export * from './IWeatherListDto'
+export * from "./IWeatherListDto";

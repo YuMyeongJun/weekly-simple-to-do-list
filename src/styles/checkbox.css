@@ -19,7 +19,7 @@
 }
 
 .weekly-checkbox-checkbox {
-  @apply pt-[2.5px]
+  @apply pt-[2.5px];
 }
 
 .weekly-checkbox-label-wrapper {
