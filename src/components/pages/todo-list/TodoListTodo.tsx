@@ -9,54 +9,51 @@ import { Children } from "react";
 export const TodoListTodo = () => {
   const { todos, deleteTodo, completeTodo } = useTodoStore((state) => state);
   return (
-    <>
-      <div className="bg-[var(--weekly-secondary-color-light)] p-2">
-        {Children.toArray(
-          todos?.map((todo, index) => (
-            <Row gutter={[8, 0]} align="start">
-              <Col span={22}>
-                <Checkbox
-                  color="dark"
-                  label={todo.title}
-                  subLabel={dateUtils.convertDateToYYYYMMDDDueDateFormat(
-                    todo.date,
-                  )}
-                  slotProps={{
-                    label: {
-                      className: classNames(
-                        { "line-through": todo?.complete },
-                        {
-                          "text-red-500":
-                            dateUtils.todayOverDate(todo.date) &&
-                            !todo?.complete,
-                        },
-                      ),
-                    },
-                    subLabel: {
-                      className: classNames({
+    <div className="bg-[var(--weekly-secondary-color-light)] p-2">
+      {Children.toArray(
+        todos?.map((todo, index) => (
+          <Row gutter={[8, 0]} align="start">
+            <Col span={22}>
+              <Checkbox
+                color="dark"
+                label={todo.title}
+                subLabel={dateUtils.convertDateToYYYYMMDDDueDateFormat(
+                  todo.date,
+                )}
+                slotProps={{
+                  label: {
+                    className: classNames(
+                      { "line-through": todo?.complete },
+                      {
                         "text-red-500":
                           dateUtils.todayOverDate(todo.date) && !todo?.complete,
-                      }),
-                    },
-                  }}
-                  defaultChecked={todo?.complete}
-                  onChange={() => completeTodo(index)}
+                      },
+                    ),
+                  },
+                  subLabel: {
+                    className: classNames({
+                      "text-red-500":
+                        dateUtils.todayOverDate(todo.date) && !todo?.complete,
+                    }),
+                  },
+                }}
+                defaultChecked={todo?.complete}
+                onChange={() => completeTodo(index)}
+              />
+            </Col>
+            <Col span={2}>
+              <div className="pt-13">
+                <IcClose
+                  width={10}
+                  height={10}
+                  className="weekly-delete-icon cursor-pointer"
+                  onClick={() => deleteTodo(index)}
                 />
-              </Col>
-              <Col span={2}>
-                <div className="pt-1">
-                  <IcClose
-                    width={10}
-                    height={10}
-                    className="weekly-delete-icon cursor-pointer"
-                    onClick={() => deleteTodo(index)}
-                  />
-                </div>
-              </Col>
-            </Row>
-          )),
-        )}
-      </div>
-    </>
+              </div>
+            </Col>
+          </Row>
+        )),
+      )}
+    </div>
   );
 };
