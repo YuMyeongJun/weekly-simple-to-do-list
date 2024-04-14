@@ -10,10 +10,10 @@ export const TodoListTodo = () => {
   const { todos, deleteTodo, completeTodo } = useTodoStore((state) => state);
   return (
     <>
-      {Children.toArray(
-        todos?.map((todo, index) => (
-          <div className="bg-[var(--weekly-secondary-color-light)] p-2">
-            <Row gutter={[8, 0]} align="center">
+      <div className="bg-[var(--weekly-secondary-color-light)] p-2">
+        {Children.toArray(
+          todos?.map((todo, index) => (
+            <Row gutter={[8, 0]} align="start">
               <Col span={22}>
                 <Checkbox
                   color="dark"
@@ -44,17 +44,19 @@ export const TodoListTodo = () => {
                 />
               </Col>
               <Col span={2}>
-                <IcClose
-                  width={10}
-                  height={10}
-                  className="weekly-delete-icon cursor-pointer"
-                  onClick={() => deleteTodo(index)}
-                />
+                <div className="pt-1">
+                  <IcClose
+                    width={10}
+                    height={10}
+                    className="weekly-delete-icon cursor-pointer"
+                    onClick={() => deleteTodo(index)}
+                  />
+                </div>
               </Col>
             </Row>
-          </div>
-        )),
-      )}
+          )),
+        )}
+      </div>
     </>
   );
 };
