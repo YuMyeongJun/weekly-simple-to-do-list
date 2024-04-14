@@ -6,16 +6,8 @@ import { buttonClasses as classes } from "./buttonClasses";
 
 export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
   (args, ref) => {
-    const {
-      id,
-      children,
-      className,
-      disabled = false,
-      type,
-      isError,
-      onClick,
-      ...buttonProps
-    } = args;
+    const { id, children, className, type, isError, onClick, ...buttonProps } =
+      args;
 
     const buttonRef = useRef<HTMLButtonElement | null>(null);
     const rootClassName = classNames(
@@ -32,7 +24,7 @@ export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
         id={id}
         className={rootClassName}
         onClick={
-          disabled
+          args.disabled
             ? (e: React.MouseEvent) => {
                 e.preventDefault();
               }

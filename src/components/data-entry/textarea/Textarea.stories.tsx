@@ -1,17 +1,17 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from "@storybook/react";
 
-import { Textarea } from './Textarea';
-import { ITextareaProps } from './Textarea.types';
+import { Textarea } from "./Textarea";
+import { ITextareaProps } from "./Textarea.types";
 
 const meta: Meta = {
-  title: 'components/data-entry/Textarea/Textarea',
+  title: "components/data-entry/Textarea/Textarea",
   component: Textarea,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    componentSubtitle: '텍스트 입력',
+    componentSubtitle: "텍스트 입력",
     docs: {
       source: {
-        type: 'code',
+        type: "code",
       },
     },
   },
@@ -35,6 +35,5 @@ export const Default: Story = {
     maxLength: 100,
     disabled: false,
     isError: false,
-    useFocus: false,
   },
 };

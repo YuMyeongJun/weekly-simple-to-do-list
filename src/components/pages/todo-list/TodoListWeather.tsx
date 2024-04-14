@@ -21,7 +21,6 @@ export const TodoListWeather = () => {
       ) : (
         <Slider
           index={nowDate.getDay() === 0 ? 6 : nowDate.getDay()}
-          className="overflow-auto"
           limit={4}
           gap={10}
         >

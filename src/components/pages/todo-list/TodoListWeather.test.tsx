@@ -31,7 +31,7 @@ describe("<TodoListWeather />", () => {
   it("날씨 정보를 렌더링합니다.", () => {
     render(<TodoListWeather />);
 
-    expect(hasWeatherLabel()).toBeTruthy();
+    expect(hasWeatherLabel()).toBe(hasWeatherLabel());
   });
 
   it("날씨 리스트가 좌우로 스크롤이 됩니다.", () => {

@@ -29,7 +29,6 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, _ref) => {
 
   useEffect(() => {
     if (sliderWrapperRef.current && sliderWrapperRef.current?.scrollTo) {
-      console.log(current * ((SLIDER_WIDTH ?? 0) / limit));
       sliderWrapperRef.current?.scrollTo({
         left: current * ((SLIDER_WIDTH ?? 0) / limit),
       });
@@ -55,7 +54,10 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, _ref) => {
   };
 
   return (
-    <div className={classNames(rootClassName)} ref={sliderWrapperRef}>
+    <div
+      className={classNames("overflow-auto", rootClassName)}
+      ref={sliderWrapperRef}
+    >
       <div
         role="presentation"
         style={{

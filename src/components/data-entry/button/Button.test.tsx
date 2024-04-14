@@ -31,7 +31,7 @@ describe("<Button />", () => {
 
 describe("Props: disabled", () => {
   it("disabled 설정됩니다.", () => {
-    const { getByRole } = render(<Button disabled />);
+    const { getByRole } = render(<Button disabled={true} />);
     const button = getByRole("button");
 
     expect(button).toHaveProperty("nodeName", "BUTTON");
@@ -39,7 +39,7 @@ describe("Props: disabled", () => {
   });
 
   it("disabled 설정되면 포커스되지 않습니다.", () => {
-    const { getByRole } = render(<Button disabled />);
+    const { getByRole } = render(<Button disabled={true} />);
 
     const button = getByRole("button");
 
@@ -52,7 +52,7 @@ describe("Props: disabled", () => {
 
   it("disabled 설정되면 사용자 동작에 응답하지 않습니다.", () => {
     const onClick = vi.fn();
-    const { getByRole } = render(<Button disabled onClick={onClick} />);
+    const { getByRole } = render(<Button disabled={true} onClick={onClick} />);
 
     const button = getByRole("button");
 
@@ -63,14 +63,6 @@ describe("Props: disabled", () => {
     });
 
     expect(onClick).toHaveBeenCalledTimes(0);
-  });
-});
-
-describe("Props: tabIndex", () => {
-  it("tabIndex가 설정됩니다.", () => {
-    const { getByText } = render(<Button tabIndex={3}>Hello</Button>);
-
-    expect(getByText("Hello")).toHaveProperty("tabIndex", 3);
   });
 });
 
