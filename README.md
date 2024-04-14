@@ -29,6 +29,15 @@ yarn dev
 
 # 빌드
 yarn build
+
+# eslint test
+yarn lint
+
+# vitest
+yarn test
+
+# storybook
+yarn storybook
 ```
 
 ## 프로젝트 구성
@@ -95,6 +104,15 @@ src
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@storybook/addon-essentials": "^8.0.8",
+    "@storybook/addon-interactions": "^8.0.8",
+    "@storybook/addon-links": "^8.0.8",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/addon-storysource": "^8.0.8",
+    "@storybook/addon-themes": "^8.0.8",
+    "@storybook/blocks": "^8.0.8",
+    "@storybook/react": "^8.0.8",
+    "@storybook/react-vite": "^8.0.8",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^15.0.2",
     "@types/faker": "5.5.9",
@@ -110,6 +128,7 @@ src
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-simple-import-sort": "^12.1.0",
+    "eslint-plugin-storybook": "^0.8.0",
     "faker": "5.5.3",
     "jsdom": "^24.0.0",
     "postcss": "^8.4.35",
@@ -117,6 +136,7 @@ src
     "postcss-nesting": "^12.1.1",
     "postcss-simple-vars": "^7.0.1",
     "prettier": "^3.2.5",
+    "storybook": "^8.0.8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.0",
