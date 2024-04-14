@@ -1968,13 +1968,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:^1.11.10":
-  version: 1.11.10
-  resolution: "dayjs@npm:1.11.10"
-  checksum: 10c0/4de9af50639d47df87f2e15fa36bb07e0f9ed1e9c52c6caa1482788ee9a384d668f1dbd00c54f82aaab163db07d61d2899384b8254da3a9184fc6deca080e2fe
-  languageName: node
-  linkType: hard
-
 "debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
@@ -2091,29 +2084,6 @@ __metadata:
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
   checksum: 10c0/26f364ebcdb6395f95124fda411f63137a4bfb5d3a06453f7f23dfe52502905bd84e0488172e0f9ec295fdc45f05c23d5d91baf16bd26f0fe9acd777a188dc39
-  languageName: node
-  linkType: hard
-
-"echarts-for-react@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "echarts-for-react@npm:3.0.2"
-  dependencies:
-    fast-deep-equal: "npm:^3.1.3"
-    size-sensor: "npm:^1.0.1"
-  peerDependencies:
-    echarts: ^3.0.0 || ^4.0.0 || ^5.0.0
-    react: ^15.0.0 || >=16.0.0
-  checksum: 10c0/a67d76d2cea6fdb8efa9e305fa998f4933053a647df13ea58b4ea0c7892a72e9afb7523a7382d98b541983e5e073adafc2c4103d7dcb88d86757c4582d45e400
-  languageName: node
-  linkType: hard
-
-"echarts@npm:^5.4.3":
-  version: 5.5.0
-  resolution: "echarts@npm:5.5.0"
-  dependencies:
-    tslib: "npm:2.3.0"
-    zrender: "npm:5.5.0"
-  checksum: 10c0/ec1aaf093cf752b90f18271de23da31dab8d3d19b77ee0dcc48424748bddbafbcd210f8d938becfda66b3a28c8548e56fa5dcc542fd880e800c2a8e7a390088b
   languageName: node
   linkType: hard
 
@@ -4481,13 +4451,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"size-sensor@npm:^1.0.1":
-  version: 1.0.2
-  resolution: "size-sensor@npm:1.0.2"
-  checksum: 10c0/2cb020cd54ae7bea76a0600ba82c1a09daf51e8bec6f96355e17b4806eb24003626e3349d6cb091f821ed5fbba193f59ca59f0ea7f6dd8b75d7c20b96c465c26
-  languageName: node
-  linkType: hard
-
 "slash@npm:^3.0.0":
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
@@ -4892,13 +4855,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.3.0":
-  version: 2.3.0
-  resolution: "tslib@npm:2.3.0"
-  checksum: 10c0/a845aed84e7e7dbb4c774582da60d7030ea39d67307250442d35c4c5dd77e4b44007098c37dd079e100029c76055f2a362734b8442ba828f8cc934f15ed9be61
-  languageName: node
-  linkType: hard
-
 "tslib@npm:^2.0.3, tslib@npm:^2.6.2":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
@@ -5213,9 +5169,6 @@ __metadata:
     autoprefixer: "npm:^10.4.17"
     axios: "npm:^1.6.8"
     classnames: "npm:^2.5.1"
-    dayjs: "npm:^1.11.10"
-    echarts: "npm:^5.4.3"
-    echarts-for-react: "npm:^3.0.2"
     eslint: "npm:^8.56.0"
     eslint-plugin-prettier: "npm:^5.1.3"
     eslint-plugin-react-hooks: "npm:^4.6.0"
@@ -5409,15 +5362,6 @@ __metadata:
     toposort: "npm:^2.0.2"
     type-fest: "npm:^2.19.0"
   checksum: 10c0/fe142141365eed0f78fb2e18bdd2f10bf101385dae12a5f9de14884448067bdca16a54b547fc0bffec04a098dd70b4519ff366422f3da006fd11a0717a7863ac
-  languageName: node
-  linkType: hard
-
-"zrender@npm:5.5.0":
-  version: 5.5.0
-  resolution: "zrender@npm:5.5.0"
-  dependencies:
-    tslib: "npm:2.3.0"
-  checksum: 10c0/d57816b4157e07d74dc82bff5e274181f3cba62544cd80d4ae1c74215916888f7d72597ef6c3bd429a0b7ebde2cc0e210c293c372794659ccc2d1a88a34a3b90
   languageName: node
   linkType: hard
 
