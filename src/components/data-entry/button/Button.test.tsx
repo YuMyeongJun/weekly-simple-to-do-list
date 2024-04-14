@@ -5,7 +5,7 @@ import { Button } from "./Button";
 import { buttonClasses as classes } from "./buttonClasses";
 
 describe("<Button />", () => {
-  it("렌더링 됩니다.", () => {
+  it("기본 내용으로 렌더링됩니다.", () => {
     const { getByTestId } = render(
       <Button data-testid="button">Button</Button>,
     );

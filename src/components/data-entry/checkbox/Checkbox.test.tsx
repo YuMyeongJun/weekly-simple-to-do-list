@@ -5,7 +5,7 @@ import { Checkbox } from "./Checkbox";
 import { checkboxClasses as classes } from "./CheckboxClasses";
 
 describe("<Checkbox />", () => {
-  it("렌더링 됩니다.", () => {
+  it("기본 내용으로 렌더링됩니다.", () => {
     const { container } = render(<Checkbox />);
     expect(
       (container.firstChild as HTMLElement).classList.contains(classes.root),

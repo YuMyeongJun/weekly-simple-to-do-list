@@ -1,36 +1,45 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { ISliderProps } from "./Slider.types";
 import classNames from "classnames";
 import { remUtil } from "@modules/utils/rem";
 import { sliderClasses } from "./SliderClasses";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, _ref) => {
-  const { className, width = 300, children, index = 0, limit = 1, gap } = args;
+  const { className, width, children, index = 0, limit = 1, gap } = args;
 
   const sliderWrapperRef = useRef<HTMLDivElement>(null);
   const sliderWrapperWidth = sliderWrapperRef.current?.offsetWidth;
-  const SLIDER_WIDTH = width ?? sliderWrapperWidth;
+  const SLIDER_WIDTH = width || sliderWrapperWidth || 300;
 
   const [current, setCurrent] = useState(0);
   const [isDrag, setIsDrag] = useState(false);
   const [startX, setStartX] = useState(0);
 
   const rootClassName = classNames(sliderClasses.root, className);
+  const _limit =
+    limit > (children?.length ?? 0) ? children?.length ?? 0 : limit;
+  const sliderWidth = (SLIDER_WIDTH ?? 0) / _limit;
+  const remWidth = remUtil.rem(sliderWidth);
 
   useEffect(() => {
-    if (!index) {
+    if (index > (children?.length ?? 0)) {
       setCurrent(0);
     } else {
-      setCurrent(index);
+      setCurrent(index || 0);
     }
-  }, []);
+  }, [index]);
 
   useEffect(() => {
     if (sliderWrapperRef.current && sliderWrapperRef.current?.scrollTo) {
       sliderWrapperRef.current?.scrollTo({
-        left: current * ((SLIDER_WIDTH ?? 0) / limit),
+        left: current * sliderWidth,
       });
     }
   }, [current]);
@@ -45,13 +54,15 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, _ref) => {
     setIsDrag(false);
   };
 
-  const handleOnDragMode = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-  ) => {
-    if (isDrag && sliderWrapperRef.current) {
-      sliderWrapperRef.current.scrollLeft = startX - e.pageX;
-    }
-  };
+  const handleOnDragMode = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      if (isDrag && sliderWrapperRef.current) {
+        const deltaX = startX - e.pageX;
+        sliderWrapperRef.current.scrollLeft = deltaX;
+      }
+    },
+    [isDrag, startX],
+  );
 
   return (
     <div
@@ -61,11 +72,13 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, _ref) => {
       <div
         role="presentation"
         style={{
-          width: `${remUtil.rem((SLIDER_WIDTH ?? 0) / limit)}`,
+          width: remWidth,
         }}
         className={sliderClasses.component}
       >
         <div
+          data-index={index}
+          data-limit={limit}
           style={{ display: "flex", gap: gap }}
           className={classNames(sliderClasses.contentWrapper)}
           onMouseDown={handleOnDargStart}
@@ -79,7 +92,7 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, _ref) => {
               <div
                 className="select-none"
                 style={{
-                  width: `${remUtil.rem((SLIDER_WIDTH ?? 0) / limit)}`,
+                  width: remWidth,
                   flex: "none",
                 }}
                 key={`card-wrap-${i}`}

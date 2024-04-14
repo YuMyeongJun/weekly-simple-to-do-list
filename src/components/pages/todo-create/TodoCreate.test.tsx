@@ -12,7 +12,7 @@ vi.mock("react-router-dom", () => ({
 }));
 
 describe("<TodoCreateComponent />", () => {
-  it("<TodoCreateComponent /> 렌더링 됩니다.", () => {
+  it("<TodoCreateComponent /> 기본 내용으로 렌더링됩니다.", () => {
     render(<TodoCreateComponent />);
 
     // 제목, 내용, Due Date 입력 필드가 있는지 확인합니다.
