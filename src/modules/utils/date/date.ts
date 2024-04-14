@@ -1,21 +1,19 @@
 export const dateUtils = {
   thisWeekList: () => {
     const currentDay = new Date();
-    const theYear = currentDay.getFullYear();
-    const theMonth = currentDay.getMonth();
-    const theDate = currentDay.getDate();
-    const theDayOfWeek = currentDay.getDay();
+    const monday = new Date();
+    monday.setDate(
+      currentDay.getDate() -
+        currentDay.getDay() +
+        (currentDay.getDay() === 0 ? -6 : 1),
+    );
 
     const thisWeek = [];
 
     for (let i = 0; i < 7; i++) {
-      const resultDay = new Date(
-        theYear,
-        theMonth,
-        theDate + (i - theDayOfWeek),
-      );
-
-      thisWeek[i] = resultDay;
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + i);
+      thisWeek.push(date);
     }
     return thisWeek;
   },
