@@ -6,7 +6,7 @@ import { useTodoStore } from "@store";
 import classNames from "classnames";
 import { Children } from "react";
 
-export const TodoListTodo = () => {
+export const TodoList = () => {
   const { todos, deleteTodo, completeTodo } = useTodoStore((state) => state);
   return (
     <div

@@ -11,7 +11,7 @@ import classNames from "classnames";
 import { remUtil } from "@modules/utils/rem";
 import { sliderClasses } from "./SliderClasses";
 
-export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, _ref) => {
+export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args) => {
   const { className, width, children, index = 0, limit = 1, gap } = args;
 
   const sliderWrapperRef = useRef<HTMLDivElement>(null);

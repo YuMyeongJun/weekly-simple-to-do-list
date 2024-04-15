@@ -1,6 +1,6 @@
 import { DefaultLayout } from "@components";
 
-import { TodoCreatePage, TodoListPage } from "@pages";
+import { TodoCreatePage, TodoPage } from "@pages";
 
 import { RouteObject } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
@@ -12,7 +12,7 @@ const routers: RouteObject[] = [
       {
         path: "/",
         index: true,
-        element: <TodoListPage />,
+        element: <TodoPage />,
       },
       {
         path: "/create",

@@ -17,7 +17,7 @@ export const dateUtils = {
     }
     return thisWeek;
   },
-  convertDateToBanksaladDateWeekFormat: (date: Date) => {
+  convertDateToDateWeekFormat: (date: Date) => {
     // 한글을 사용하는 요일을 위해서는 추가적으로 배열을 만들어서 사용
     const day = ["일", "월", "화", "수", "목", "금", "토"];
     const _date = new Date(date);

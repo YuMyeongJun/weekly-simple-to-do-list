@@ -1,13 +1,12 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { vi } from "vitest";
-import { TodoListComponent } from "./TodoListComponent";
-import { HttpProvider } from "@hooks";
+import { TodoComponent } from "./TodoComponent";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@modules";
 import { faker } from "@faker-js/faker";
 import { weatherLabel, WeatherType } from "@models";
 import { TodoListWeather } from "./TodoListWeather";
-import { TodoListTodo } from "./TodoListTodo";
+import { TodoList } from "./TodoList";
 
 const mockNavigate = vi.fn();
 const mockDeleteTodo = vi.fn();
@@ -50,11 +49,11 @@ vi.mock("@store", () => ({
   }),
 }));
 
-describe("<TodoListComponent />", () => {
+describe("<TodoComponent />", () => {
   it("기본 내용으로 렌더링됩니다.", () => {
     render(
       <QueryClientProvider client={queryClient}>
-        <TodoListComponent />
+        <TodoComponent />
       </QueryClientProvider>,
     );
     expect(screen.getByText("THIS WEEK")).toBeTruthy();
@@ -63,7 +62,7 @@ describe("<TodoListComponent />", () => {
   it("추가버튼을 클릭하면 '/create' 경로로 이동합니다.", () => {
     render(
       <QueryClientProvider client={queryClient}>
-        <TodoListComponent />
+        <TodoComponent />
       </QueryClientProvider>,
     );
 
@@ -94,15 +93,15 @@ describe("<TodoListWeather />", () => {
   });
 });
 
-describe("<TodoListTodo />", () => {
+describe("<TodoList />", () => {
   it("렌더링합니다.", () => {
-    const { container } = render(<TodoListTodo />);
+    const { container } = render(<TodoList />);
 
     expect(container).toBeTruthy();
   });
 
   it("X 버튼을 클릭하면 deleteTodo 함수가 호출됩니다.", () => {
-    const { container } = render(<TodoListTodo />);
+    const { container } = render(<TodoList />);
 
     fireEvent.click(container.getElementsByClassName("weekly-delete-icon")[0]);
 
@@ -110,7 +109,7 @@ describe("<TodoListTodo />", () => {
   });
 
   it("체크박스를 클릭하면 completeTodo 함수가 호출됩니다.", () => {
-    const { container } = render(<TodoListTodo />);
+    const { container } = render(<TodoList />);
 
     fireEvent.click(container.getElementsByTagName("input")[0]);
 

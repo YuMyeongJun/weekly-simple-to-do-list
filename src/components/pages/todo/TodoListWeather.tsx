@@ -40,9 +40,7 @@ export const TodoListWeather = () => {
                     },
                   )}
                 >
-                  <div>
-                    {dateUtils.convertDateToBanksaladDateWeekFormat(item.date)}
-                  </div>
+                  <div>{dateUtils.convertDateToDateWeekFormat(item.date)}</div>
                   <div
                     title={weatherLabel[item.weather]}
                     data-weather={item.weather}

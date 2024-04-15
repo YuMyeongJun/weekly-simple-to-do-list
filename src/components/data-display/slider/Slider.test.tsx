@@ -30,9 +30,9 @@ describe("<Slider />", () => {
     const index = faker.number.int({ min: 0, max: 100 });
     const limit = faker.number.int({ min: 0, max: 100 });
     render(
-      <Slider index={index}>
+      <Slider index={index} limit={limit}>
         {Array.from({ length: faker.number.int({ min: 0, max: 100 }) }).map(
-          (x) => (
+          () => (
             <div style={contentStyle}>{faker.company.name()}</div>
           ),
         )}
