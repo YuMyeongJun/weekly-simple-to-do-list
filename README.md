@@ -3,18 +3,20 @@
 ## Node Version
 
 ```bash
-node >= v18
-nvm install 20.11.0
-nvm use 20.11.0
+node >= v20
 ```
 
 ## 설치
 
-1. yarn 설치
+1. node 설치
+
+   https://nodejs.org/en/download
+   
+3. yarn 설치
 
    https://yarnpkg.com/
 
-2. OS X & Linux & Windows Shell Emulator:
+4. OS X & Linux & Windows Shell Emulator:
 
 ```sh
 # 모듈설치
@@ -87,7 +89,7 @@ src
 
 ```json
 {
-  "dependencies": {
+    "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@tanstack/react-query": "^5.22.2",
     "axios": "^1.6.8",
@@ -138,7 +140,7 @@ src
     "prettier": "^3.2.5",
     "storybook": "^8.0.8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.2.2",
+    "typescript": "5.3.3",
     "vite": "^5.1.0",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.1"
