@@ -54,4 +54,9 @@ export interface ICheckboxProps
    * @param {boolean} checked 새로운값
    */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void;
+  /**
+   * 라벨 클릭 함수
+   * @returns
+   */
+  onClickLabel?: () => void;
 }

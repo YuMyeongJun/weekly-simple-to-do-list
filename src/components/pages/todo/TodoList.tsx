@@ -5,8 +5,10 @@ import { dateUtils } from "@modules";
 import { useTodoStore } from "@store";
 import classNames from "classnames";
 import { Children } from "react";
+import { useNavigate } from "react-router";
 
 export const TodoList = () => {
+  const navigate = useNavigate();
   const { todos, deleteTodo, completeTodo } = useTodoStore((state) => state);
   return (
     <div
@@ -43,6 +45,7 @@ export const TodoList = () => {
                 }}
                 defaultChecked={todo?.complete}
                 onChange={() => completeTodo(index)}
+                onClickLabel={() => navigate(`/create/${index}`)}
               />
             </Col>
             <Col span={2}>

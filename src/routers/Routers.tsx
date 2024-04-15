@@ -16,7 +16,10 @@ const routers: RouteObject[] = [
       },
       {
         path: "/create",
-
+        element: <TodoCreatePage />,
+      },
+      {
+        path: "/create/:todoIndex",
         element: <TodoCreatePage />,
       },
     ],

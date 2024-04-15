@@ -13,3 +13,20 @@ input[type="date"] {
 input[type="date"]::-webkit-calendar-picker-indicator {
   @apply absolute w-full h-full text-transparent cursor-pointer left-0 top-0 bg-transparent bg-none;
 }
+
+input[type="date"][data-placeholder-view="false"]::-webkit-datetime-edit-text {
+  @apply hidden;
+}
+
+input[type="date"][data-placeholder-view="false"]::-webkit-datetime-edit-text {
+  @apply hidden;
+}
+input[type="date"][data-placeholder-view="false"]::-webkit-datetime-edit-month-field {
+  @apply hidden;
+}
+input[type="date"][data-placeholder-view="false"]::-webkit-datetime-edit-day-field {
+  @apply hidden;
+}
+input[type="date"][data-placeholder-view="false"]::-webkit-datetime-edit-year-field {
+  @apply hidden;
+}

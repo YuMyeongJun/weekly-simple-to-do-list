@@ -23,6 +23,7 @@ const createTodoList = () => {
   return {
     title: faker.company.name(),
     date: faker.date,
+    content: faker.company.buzzVerb(),
     complete: faker.datatype.boolean(),
   };
 };
@@ -94,7 +95,7 @@ describe("<TodoListWeather />", () => {
 });
 
 describe("<TodoList />", () => {
-  it("렌더링합니다.", () => {
+  it("Todo List를 렌더링합니다.", () => {
     const { container } = render(<TodoList />);
 
     expect(container).toBeTruthy();

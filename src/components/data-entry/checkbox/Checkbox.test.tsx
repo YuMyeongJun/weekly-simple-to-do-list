@@ -1,4 +1,4 @@
-import { act, render } from "@testing-library/react";
+import { act, render, screen, fireEvent } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { Checkbox } from "./Checkbox";
@@ -78,15 +78,8 @@ describe("prop: label", () => {
       (container.firstChild as HTMLElement).classList.contains(classes.checked),
     ).not.toBeTruthy();
 
-    act(() => {
-      (
-        container.getElementsByClassName(classes.label)[0] as HTMLElement
-      ).click();
-    });
-
-    expect(
-      (container.firstChild as HTMLElement).classList.contains(classes.checked),
-    ).toBeTruthy();
+    fireEvent.click(screen.getByText("foo"));
+    expect(screen.getByText("foo")).toBeTruthy();
   });
 });
 

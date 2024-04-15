@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback } from "react";
+import React, { forwardRef, useCallback, useRef } from "react";
 
 import classNames from "classnames";
 
@@ -7,7 +7,7 @@ import { textareaClasses } from "./TextareaClasses";
 
 export const Textarea = forwardRef<HTMLTextAreaElement, ITextareaProps>(
   (args, ref) => {
-    const { readOnly, isError, ...inputProps } = args;
+    const { readOnly, isError, ...textareaProps } = args;
 
     const handleTextArea = useCallback(
       (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -15,19 +15,28 @@ export const Textarea = forwardRef<HTMLTextAreaElement, ITextareaProps>(
       },
       [args],
     );
-
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
     const resultClassName = classNames(textareaClasses.root, args.className, {
       invalid: isError,
     });
 
     return (
       <textarea
-        {...inputProps}
+        {...textareaProps}
         className={resultClassName}
         onChange={handleTextArea}
         placeholder={args.placeholder}
         maxLength={args.maxLength}
-        ref={ref}
+        ref={(current) => {
+          if (ref) {
+            if (typeof ref === "function") {
+              ref(current);
+            } else {
+              ref.current = current;
+            }
+          }
+          textareaRef.current = current;
+        }}
         readOnly={readOnly}
         autoComplete={args.autoComplete ? "true" : "false"}
         disabled={args.disabled}

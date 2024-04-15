@@ -1,2 +1,2 @@
-export * from "./ICreateTodoVO";
+export * from "./ITodoCreateVO";
 export * from "./ITodoVO";

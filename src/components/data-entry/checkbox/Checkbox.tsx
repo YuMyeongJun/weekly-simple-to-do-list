@@ -3,10 +3,10 @@ import * as React from "react";
 import { ICheckboxProps } from "./Checkbox.types";
 import classNames from "classnames";
 import { checkboxClasses as classes } from "./CheckboxClasses";
-import { forwardRef } from "react";
+import { forwardRef, useRef } from "react";
 import { useControlled } from "@hooks/useControlled";
 
-export const Checkbox = forwardRef<HTMLElement, ICheckboxProps>((args) => {
+export const Checkbox = forwardRef<HTMLElement, ICheckboxProps>((args, ref) => {
   const {
     checked: checkedProp,
     defaultChecked,
@@ -17,9 +17,11 @@ export const Checkbox = forwardRef<HTMLElement, ICheckboxProps>((args) => {
     label,
     subLabel,
     onChange: onChangeProp,
+    onClickLabel,
     ...inputProps
   } = args;
 
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const defaultId = React.useId();
   const id = idOverride ?? defaultId;
   const [checked, setChecked] = useControlled({
@@ -54,8 +56,9 @@ export const Checkbox = forwardRef<HTMLElement, ICheckboxProps>((args) => {
   };
 
   const onChange = handleChange;
+
   return (
-    <label {...rootSlot} className={rootClassName} htmlFor={id}>
+    <span {...rootSlot} className={rootClassName}>
       <span
         {...checkboxSlot}
         className={classNames(classes.checkbox, checkboxSlot.className)}
@@ -64,7 +67,16 @@ export const Checkbox = forwardRef<HTMLElement, ICheckboxProps>((args) => {
           {...inputProps}
           {...inputSlot}
           type="checkbox"
-          ref={inputSlot.ref}
+          ref={(current) => {
+            if (ref) {
+              if (typeof ref === "function") {
+                ref(current);
+              } else {
+                ref.current = current;
+              }
+            }
+            inputRef.current = current;
+          }}
           id={id}
           name={name}
           checked={checkedProp}
@@ -73,22 +85,34 @@ export const Checkbox = forwardRef<HTMLElement, ICheckboxProps>((args) => {
           onChange={disabled ? undefined : onChange}
         />
       </span>
-      <span
-        className={classNames(classes.labelWrapper, labelWrapperSlot.className)}
+      <label
+        className="cursor-pointer"
+        htmlFor={id}
+        onClick={(e) => {
+          e.preventDefault();
+          onClickLabel?.();
+        }}
       >
-        {label && (
-          <span className={classNames(classes.label, labelSlot.className)}>
-            {label}
-          </span>
-        )}
-        {subLabel && (
-          <span
-            className={classNames(classes.subLabel, subLabelSlot.className)}
-          >
-            {subLabel}
-          </span>
-        )}
-      </span>
-    </label>
+        <span
+          className={classNames(
+            classes.labelWrapper,
+            labelWrapperSlot.className,
+          )}
+        >
+          {label && (
+            <span className={classNames(classes.label, labelSlot.className)}>
+              {label}
+            </span>
+          )}
+          {subLabel && (
+            <span
+              className={classNames(classes.subLabel, subLabelSlot.className)}
+            >
+              {subLabel}
+            </span>
+          )}
+        </span>
+      </label>
+    </span>
   );
 });

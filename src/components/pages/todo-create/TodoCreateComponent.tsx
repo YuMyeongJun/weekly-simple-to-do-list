@@ -4,29 +4,38 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as yup from "yup";
 import classNames from "classnames";
-import { ICreateTodoVO } from "@models";
+import { ITodoCreateVO } from "@models";
 import { useTodoStore } from "@store";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Button, Input, Textarea } from "@components/data-entry";
 
 export const TodoCreateComponent = () => {
+  const { todoIndex } = useParams();
+  const _todoIndex = Number(todoIndex);
   const navigate = useNavigate();
-  const { addTodo } = useTodoStore((state) => state);
+  const { todos, addTodo, modiTodo } = useTodoStore((state) => state);
   const schema = yup.object({
     title: yup.string().required("제목을 입력해주세요."),
     content: yup.string().required("내용을 입력해주세요."),
   });
+  const defaultValue = todoIndex ? todos?.[_todoIndex] : undefined;
   const {
     watch,
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ICreateTodoVO>({
+  } = useForm<ITodoCreateVO>({
+    defaultValues: defaultValue,
     resolver: yupResolver(schema),
   });
 
-  const handleOnSubmit = (data: ICreateTodoVO) => {
-    addTodo(data);
+  const handleOnSubmit = (data: ITodoCreateVO) => {
+    if (todoIndex && todoIndex !== "") {
+      modiTodo(data, _todoIndex);
+    } else {
+      addTodo(data);
+    }
+
     navigate("/");
   };
   return (
@@ -60,7 +69,7 @@ export const TodoCreateComponent = () => {
               invalid: errors.content,
             })}
             placeholder="텍스트 입력"
-            minRows={5}
+            rows={5}
             {...register("content")}
           />
           {errors.content?.message && (
@@ -74,9 +83,10 @@ export const TodoCreateComponent = () => {
             role="todo-create-date"
             type="date"
             className={classNames("weekly-input", {
-              "before:content-[attr(data-placeholder)] before:w-full before:h-full before:leading-loose before:text-[#9da3ae] before:text-sm":
+              "before:absolute before:content-[attr(data-placeholder)] before:w-full before:h-full before:leading-loose before:text-[#9da3ae] before:text-sm before:top-1/2 before:translate-y-[-50%]":
                 !watch("date"),
             })}
+            data-placeholder-view={!!watch("date")}
             data-placeholder="날짜 입력"
             {...register("date")}
           />
