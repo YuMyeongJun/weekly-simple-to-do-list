@@ -10,6 +10,7 @@ import { ISliderProps } from "./Slider.types";
 import classNames from "classnames";
 import { remUtil } from "@modules/utils/rem";
 import { sliderClasses } from "./SliderClasses";
+import { composeRef } from "@modules";
 
 export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
   const { className, width, children, index = 0, limit = 1, gap } = args;
@@ -67,16 +68,7 @@ export const Slider = forwardRef<HTMLDivElement, ISliderProps>((args, ref) => {
   return (
     <div
       className={classNames("overflow-auto", rootClassName)}
-      ref={(current) => {
-        if (ref) {
-          if (typeof ref === "function") {
-            ref(current);
-          } else {
-            ref.current = current;
-          }
-        }
-        sliderWrapperRef.current = current;
-      }}
+      ref={composeRef(sliderWrapperRef, ref)}
     >
       <div
         role="presentation"
