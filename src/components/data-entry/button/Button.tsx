@@ -3,6 +3,7 @@ import classNames from "classnames";
 
 import { IButtonProps } from "./Button.types";
 import { buttonClasses as classes } from "./buttonClasses";
+import { composeRef } from "@modules";
 
 export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
   (args, ref) => {
@@ -22,6 +23,7 @@ export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
       <button
         type={type}
         id={id}
+        ref={composeRef(buttonRef, ref)}
         className={rootClassName}
         onClick={
           args.disabled
@@ -30,16 +32,6 @@ export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
               }
             : onClick
         }
-        ref={(current) => {
-          if (ref) {
-            if (typeof ref === "function") {
-              ref(current);
-            } else {
-              ref.current = current;
-            }
-          }
-          buttonRef.current = current;
-        }}
         {...buttonProps}
       >
         {children}
