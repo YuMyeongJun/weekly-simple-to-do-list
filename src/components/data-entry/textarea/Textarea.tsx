@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 import { ITextareaProps } from "./Textarea.types";
 import { textareaClasses } from "./TextareaClasses";
+import { composeRef } from "@modules";
 
 export const Textarea = forwardRef<HTMLTextAreaElement, ITextareaProps>(
   (args, ref) => {
@@ -23,20 +24,11 @@ export const Textarea = forwardRef<HTMLTextAreaElement, ITextareaProps>(
     return (
       <textarea
         {...textareaProps}
+        ref={composeRef(textareaRef, ref)}
         className={resultClassName}
         onChange={handleTextArea}
         placeholder={args.placeholder}
         maxLength={args.maxLength}
-        ref={(current) => {
-          if (ref) {
-            if (typeof ref === "function") {
-              ref(current);
-            } else {
-              ref.current = current;
-            }
-          }
-          textareaRef.current = current;
-        }}
         readOnly={readOnly}
         autoComplete={args.autoComplete ? "true" : "false"}
         disabled={args.disabled}
