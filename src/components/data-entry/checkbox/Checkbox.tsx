@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { checkboxClasses as classes } from "./CheckboxClasses";
 import { forwardRef, useRef } from "react";
 import { useControlled } from "@hooks/useControlled";
+import { composeRef } from "@modules";
 
 export const Checkbox = forwardRef<HTMLElement, ICheckboxProps>((args, ref) => {
   const {
@@ -67,16 +68,7 @@ export const Checkbox = forwardRef<HTMLElement, ICheckboxProps>((args, ref) => {
           {...inputProps}
           {...inputSlot}
           type="checkbox"
-          ref={(current) => {
-            if (ref) {
-              if (typeof ref === "function") {
-                ref(current);
-              } else {
-                ref.current = current;
-              }
-            }
-            inputRef.current = current;
-          }}
+          ref={composeRef(inputRef, ref)}
           id={id}
           name={name}
           checked={checkedProp}
